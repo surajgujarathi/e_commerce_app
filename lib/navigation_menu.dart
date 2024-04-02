@@ -1,5 +1,5 @@
-import 'package:e_commerce_app/features/screens/home/home.dart';
-import 'package:e_commerce_app/utils/theme/constants.dart/colors.dart';
+import 'package:e_commerce_app/features/screens/home/widgets/home.dart';
+import 'package:e_commerce_app/utils/theme/constants/colors.dart';
 import 'package:e_commerce_app/utils/theme/helpers/helpers_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

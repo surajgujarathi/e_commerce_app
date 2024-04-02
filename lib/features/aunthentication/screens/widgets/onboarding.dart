@@ -1,6 +1,6 @@
 import 'package:e_commerce_app/features/aunthentication/screens/onboarding_controller.dart';
-import 'package:e_commerce_app/utils/theme/constants.dart/image_strings.dart';
-import 'package:e_commerce_app/utils/theme/constants.dart/text_strings.dart';
+import 'package:e_commerce_app/utils/theme/constants/image_strings.dart';
+import 'package:e_commerce_app/utils/theme/constants/text_strings.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

@@ -1,0 +1,75 @@
+import 'package:e_commerce_app/common/widgets/custom_shapes/containers/primary_header_container.dart';
+import 'package:e_commerce_app/common/widgets/custom_shapes/containers/searchcontainer.dart';
+import 'package:e_commerce_app/common/widgets/texts/section_heading.dart';
+import 'package:e_commerce_app/features/screens/home/widgets/home_appbar.dart';
+import 'package:e_commerce_app/features/screens/home/widgets/home_categories.dart';
+import 'package:e_commerce_app/features/screens/home/widgets/promosliders.dart';
+import 'package:e_commerce_app/utils/theme/constants/image_strings.dart';
+import 'package:e_commerce_app/utils/theme/constants/sizes.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            //Header
+            const TPrimaryHeaderContainer(
+              child: Column(children: [
+                //appbar
+                THomeAppBar(),
+                SizedBox(
+                  height: Tsized.spaceBtwSections,
+                ),
+                //searchbar
+                TSearchContainer(
+                  text: 'Search in store',
+                ),
+                SizedBox(
+                  height: Tsized.spaceBtwSections,
+                ),
+                //categories
+                Padding(
+                  padding: EdgeInsets.only(left: Tsized.defaultSpace),
+                  child: Column(
+                    children: [
+                      //heading
+                      TSectionHeading(
+                        title: 'Popular Categories',
+                        showActionButtton: false,
+                        textcolor: Colors.white,
+                      ),
+                      SizedBox(
+                        height: Tsized.spaceBtwItems,
+                      ),
+                      //categories
+                      THomeCategories()
+                    ],
+                  ),
+                )
+              ]),
+            ),
+
+            //body
+            Padding(
+              padding: const EdgeInsets.all(Tsized.defaultSpace),
+              child: Column(
+                children: [
+                  TPromoSlider(
+                    banners: [TImages.zara, TImages.puma, TImages.pumac],
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}

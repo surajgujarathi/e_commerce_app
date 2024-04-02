@@ -1,6 +1,6 @@
-import 'package:e_commerce_app/utils/theme/constants.dart/colors.dart';
-import 'package:e_commerce_app/utils/theme/constants.dart/image_strings.dart';
-import 'package:e_commerce_app/utils/theme/constants.dart/sizes.dart';
+import 'package:e_commerce_app/utils/theme/constants/colors.dart';
+import 'package:e_commerce_app/utils/theme/constants/image_strings.dart';
+import 'package:e_commerce_app/utils/theme/constants/sizes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

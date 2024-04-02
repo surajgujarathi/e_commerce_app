@@ -1,11 +1,11 @@
 import 'package:e_commerce_app/features/screens/signup/verify_email.dart';
 import 'package:e_commerce_app/features/screens/signup/widgets/terms_condtions.dart';
-import 'package:e_commerce_app/utils/theme/constants.dart/sizes.dart';
+import 'package:e_commerce_app/utils/theme/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
-import '../../../../utils/theme/constants.dart/text_strings.dart';
+import '../../../../utils/theme/constants/text_strings.dart';
 
 class TSignupForm extends StatelessWidget {
   const TSignupForm({

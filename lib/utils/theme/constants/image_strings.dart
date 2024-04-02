@@ -17,4 +17,10 @@ class TImages {
   //animations
   static String verify = "assets/images/animations/verify.gif";
   static String success = "assets/images/animations/success.gif";
+
+  static String sneakers = "assets/icons/categories/sneakers.png";
+
+  static String puma = "assets/images/banners/puma.jpeg";
+  static String pumac = "assets/images/banners/pumac.jpeg";
+  static String zara = "assets/images/banners/zara.jpeg";
 }

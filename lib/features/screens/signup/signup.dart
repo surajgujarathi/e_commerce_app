@@ -1,8 +1,8 @@
 import 'package:e_commerce_app/common/widgets_login_signup/form_divider.dart';
 import 'package:e_commerce_app/common/widgets_login_signup/social_button.dart';
 import 'package:e_commerce_app/features/screens/signup/widgets/signup_form.dart';
-import 'package:e_commerce_app/utils/theme/constants.dart/sizes.dart';
-import 'package:e_commerce_app/utils/theme/constants.dart/text_strings.dart';
+import 'package:e_commerce_app/utils/theme/constants/sizes.dart';
+import 'package:e_commerce_app/utils/theme/constants/text_strings.dart';
 import 'package:e_commerce_app/utils/theme/helpers/helpers_functions.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

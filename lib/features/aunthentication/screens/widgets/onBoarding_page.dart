@@ -1,4 +1,4 @@
-import 'package:e_commerce_app/utils/theme/constants.dart/sizes.dart';
+import 'package:e_commerce_app/utils/theme/constants/sizes.dart';
 import 'package:e_commerce_app/utils/theme/helpers/helpers_functions.dart';
 import 'package:flutter/material.dart';
 
