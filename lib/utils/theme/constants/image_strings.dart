@@ -23,4 +23,8 @@ class TImages {
   static String puma = "assets/images/banners/puma.jpeg";
   static String pumac = "assets/images/banners/pumac.jpeg";
   static String zara = "assets/images/banners/zara.jpeg";
+  static String product1 = "assets/images/products/product1.jpeg";
+  static String product2 = "assets/images/products/product2.jpg";
+
+  static String product3 = "assets/images/products/product3.png";
 }

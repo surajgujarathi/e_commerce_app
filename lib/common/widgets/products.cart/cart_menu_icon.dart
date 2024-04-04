@@ -5,7 +5,7 @@ import 'package:iconsax_flutter/iconsax_flutter.dart';
 class TCartCounterIcon extends StatelessWidget {
   const TCartCounterIcon({
     super.key,
-    required this.iconColor,
+    this.iconColor = TColors.black,
     required this.onPressed,
   });
   final Color iconColor;
@@ -18,8 +18,8 @@ class TCartCounterIcon extends StatelessWidget {
         IconButton(
             onPressed: onPressed,
             icon: Icon(
-              Iconsax.shopping_bag,
-              color: TColors.white,
+              Iconsax.shopping_bag_copy,
+              color: iconColor,
             )),
         Positioned(
           right: 0,

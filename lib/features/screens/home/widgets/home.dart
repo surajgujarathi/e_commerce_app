@@ -1,5 +1,7 @@
 import 'package:e_commerce_app/common/widgets/custom_shapes/containers/primary_header_container.dart';
 import 'package:e_commerce_app/common/widgets/custom_shapes/containers/searchcontainer.dart';
+import 'package:e_commerce_app/common/widgets/layouts/grid_layout.dart';
+import 'package:e_commerce_app/common/widgets/product_cards/product_card_vertical.dart';
 import 'package:e_commerce_app/common/widgets/texts/section_heading.dart';
 import 'package:e_commerce_app/features/screens/home/widgets/home_appbar.dart';
 import 'package:e_commerce_app/features/screens/home/widgets/home_categories.dart';
@@ -28,8 +30,12 @@ class HomeScreen extends StatelessWidget {
                   height: Tsized.spaceBtwSections,
                 ),
                 //searchbar
-                TSearchContainer(
-                  text: 'Search in store',
+                Padding(
+                  padding:
+                      EdgeInsets.symmetric(horizontal: Tsized.defaultSpace),
+                  child: TSearchContainer(
+                    text: 'Search in store',
+                  ),
                 ),
                 SizedBox(
                   height: Tsized.spaceBtwSections,
@@ -64,6 +70,17 @@ class HomeScreen extends StatelessWidget {
                   TPromoSlider(
                     banners: [TImages.zara, TImages.puma, TImages.pumac],
                   ),
+                  SizedBox(
+                    height: Tsized.spaceBtwItems,
+                  ),
+                  TSectionHeading(
+                    title: 'Popular Products',
+                    onPressed: () {},
+                  ),
+                  TGridLayout(
+                    itemCount: 6,
+                    itemBuilder: (_, index) => TProductCardVertical(),
+                  )
                 ],
               ),
             )
