@@ -36,7 +36,7 @@ class TBrandCard extends StatelessWidget {
                 overlaycolor: THelperFunctions.isDarkmode(context)
                     ? TColors.white
                     : TColors.black,
-                image: TImages.product1,
+                image: TImages.sneakers,
               ),
             ),
             const SizedBox(
