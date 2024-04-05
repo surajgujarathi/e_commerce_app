@@ -1,5 +1,4 @@
 import 'package:e_commerce_app/utils/theme/constants/sizes.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 

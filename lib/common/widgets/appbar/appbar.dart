@@ -4,7 +4,6 @@ import 'package:e_commerce_app/utils/theme/device/device_utility.dart';
 import 'package:e_commerce_app/utils/theme/helpers/helpers_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
-import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 class TAppBar extends StatelessWidget implements PreferredSizeWidget {
   const TAppBar(

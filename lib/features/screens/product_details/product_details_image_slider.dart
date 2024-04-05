@@ -4,7 +4,6 @@ import 'package:e_commerce_app/common/widgets/images/t_rounded_image.dart';
 import 'package:e_commerce_app/utils/theme/constants/image_strings.dart';
 import 'package:e_commerce_app/utils/theme/helpers/helpers_functions.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../../common/widgets/custom_shapes/curved_edges/curved_edges_widget.dart';
@@ -37,23 +36,23 @@ class TProductImageSlider extends StatelessWidget {
               child: SizedBox(
                 height: 80,
                 child: ListView.separated(
-                  separatorBuilder: (_, __) => SizedBox(
+                  separatorBuilder: (_, __) => const SizedBox(
                     width: Tsized.spaceBtwItems,
                   ),
                   itemCount: 6,
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
-                  physics: AlwaysScrollableScrollPhysics(),
+                  physics: const AlwaysScrollableScrollPhysics(),
                   itemBuilder: (_, index) => TRoundedImage(
                       width: 80,
                       backgroundcolor: dark ? TColors.dark : TColors.white,
                       border: Border.all(color: TColors.primary),
-                      padding: EdgeInsets.all(Tsized.sm),
+                      padding: const EdgeInsets.all(Tsized.sm),
                       imageurl: TImages.nike1),
                 ),
               ),
             ),
-            TAppBar(
+            const TAppBar(
               showBackArrow: true,
               actions: [
                 TCircularIcon(

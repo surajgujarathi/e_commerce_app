@@ -5,7 +5,6 @@ import 'package:e_commerce_app/features/screens/profile/profile_menu.dart';
 import 'package:e_commerce_app/utils/theme/constants/image_strings.dart';
 import 'package:e_commerce_app/utils/theme/constants/sizes.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -75,7 +74,7 @@ class ProfileScreen extends StatelessWidget {
               const SizedBox(height: Tsized.spaceBtwItems),
               TextButton(
                   onPressed: () {},
-                  child: Text(
+                  child: const Text(
                     'Close Account',
                     style: TextStyle(color: Colors.red),
                   ))

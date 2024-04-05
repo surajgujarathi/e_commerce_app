@@ -12,7 +12,7 @@ import 'package:iconsax_flutter/iconsax_flutter.dart';
 import '../profile/profile.dart';
 
 class SettingScreen extends StatelessWidget {
-  const SettingScreen({Key? key}) : super(key: key);
+  const SettingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +37,7 @@ class SettingScreen extends StatelessWidget {
                   height: Tsized.spaceBtwInputFields,
                 ),
                 TUserProfile(
-                  onPressed: () => Get.to(() => ProfileScreen()),
+                  onPressed: () => Get.to(() => const ProfileScreen()),
                 ),
                 const SizedBox(
                   height: Tsized.spaceBtwSections,
