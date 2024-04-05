@@ -1,4 +1,3 @@
-import 'package:e_commerce_app/common/widgets/product_cards/product_card_vertical.dart';
 import 'package:e_commerce_app/utils/theme/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
@@ -19,13 +18,13 @@ class TGridLayout extends StatelessWidget {
         itemCount: itemCount,
         shrinkWrap: true,
         padding: EdgeInsets.zero,
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
-          mainAxisSpacing: Tsized.gridViewSpacing,
           mainAxisExtent: mainAxisExtent,
+          mainAxisSpacing: Tsized.gridViewSpacing,
           crossAxisSpacing: Tsized.gridViewSpacing,
         ),
-        itemBuilder: (_, index) => TProductCardVertical());
+        itemBuilder: itemBuilder);
   }
 }

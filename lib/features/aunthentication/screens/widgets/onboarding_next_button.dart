@@ -8,8 +8,8 @@ import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 class OnBoardingNextButton extends StatelessWidget {
   const OnBoardingNextButton({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

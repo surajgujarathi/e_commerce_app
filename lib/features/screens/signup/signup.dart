@@ -4,7 +4,6 @@ import 'package:e_commerce_app/features/screens/signup/widgets/signup_form.dart'
 import 'package:e_commerce_app/utils/theme/constants/sizes.dart';
 import 'package:e_commerce_app/utils/theme/constants/text_strings.dart';
 import 'package:e_commerce_app/utils/theme/helpers/helpers_functions.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -32,7 +31,7 @@ class SignupScreen extends StatelessWidget {
               ),
 
               ///form
-              TSignupForm(),
+              const TSignupForm(),
               const SizedBox(
                 height: Tsized.spaceBtwInputFields,
               ),

@@ -2,9 +2,7 @@ import 'package:e_commerce_app/features/aunthentication/screens/onboarding_contr
 import 'package:e_commerce_app/utils/theme/constants/image_strings.dart';
 import 'package:e_commerce_app/utils/theme/constants/text_strings.dart';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 import 'onBoarding_page.dart';
@@ -47,7 +45,7 @@ class OnBoardingScreen extends StatelessWidget {
           ),
           const OnBoardSkip(),
           const onBoardingDotNavigation(),
-          OnBoardingNextButton()
+          const OnBoardingNextButton()
         ],
       ),
     );

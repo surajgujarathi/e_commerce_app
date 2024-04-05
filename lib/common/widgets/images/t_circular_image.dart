@@ -1,9 +1,7 @@
 import 'package:e_commerce_app/utils/theme/constants/colors.dart';
-import 'package:e_commerce_app/utils/theme/constants/image_strings.dart';
 import 'package:e_commerce_app/utils/theme/constants/sizes.dart';
 import 'package:e_commerce_app/utils/theme/helpers/helpers_functions.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 
 class TCircularImage extends StatelessWidget {
@@ -44,8 +42,10 @@ class TCircularImage extends StatelessWidget {
         child: Image(
           fit: fit,
           image: isNetworkImage
-              ? NetworkImage(image)
-              : AssetImage(TImages.product3) as ImageProvider,
+              ? NetworkImage(
+                  image,
+                )
+              : AssetImage(image) as ImageProvider,
           color: overlaycolor,
         ),
       ),

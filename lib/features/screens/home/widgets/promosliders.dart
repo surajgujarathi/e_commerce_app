@@ -1,4 +1,3 @@
-import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:e_commerce_app/common/widgets/custom_shapes/containers/circular_containers.dart';
 import 'package:e_commerce_app/common/widgets/images/t_rounded_image.dart';
@@ -8,8 +7,6 @@ import 'package:e_commerce_app/utils/theme/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
 
 class TPromoSlider extends StatelessWidget {
   const TPromoSlider({
@@ -42,7 +39,7 @@ class TPromoSlider extends StatelessWidget {
                   TcircularContainer(
                     width: 20,
                     height: 4,
-                    margin: EdgeInsets.only(right: 10),
+                    margin: const EdgeInsets.only(right: 10),
                     backgroundcolor: controller.carousalCurrentIndex.value == i
                         ? TColors.primary
                         : TColors.grey,

@@ -8,9 +8,7 @@ import 'package:e_commerce_app/features/screens/home/widgets/home_categories.dar
 import 'package:e_commerce_app/features/screens/home/widgets/promosliders.dart';
 import 'package:e_commerce_app/utils/theme/constants/image_strings.dart';
 import 'package:e_commerce_app/utils/theme/constants/sizes.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -58,6 +56,9 @@ class HomeScreen extends StatelessWidget {
                       THomeCategories()
                     ],
                   ),
+                ),
+                SizedBox(
+                  height: Tsized.spaceBtwSections,
                 )
               ]),
             ),
@@ -70,7 +71,7 @@ class HomeScreen extends StatelessWidget {
                   TPromoSlider(
                     banners: [TImages.zara, TImages.puma, TImages.pumac],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: Tsized.spaceBtwItems,
                   ),
                   TSectionHeading(
@@ -79,7 +80,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                   TGridLayout(
                     itemCount: 6,
-                    itemBuilder: (_, index) => TProductCardVertical(),
+                    itemBuilder: (_, index) => const TProductCardVertical(),
                   )
                 ],
               ),

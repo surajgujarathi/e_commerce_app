@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 
 class OnBoardSkip extends StatelessWidget {
   const OnBoardSkip({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class OnBoardSkip extends StatelessWidget {
       right: Tsized.defaultSpace,
       child: TextButton(
         onPressed: () => OnBoardingController.instance.skipPage(),
-        child: Text('Skip'),
+        child: const Text('Skip'),
       ),
     );
   }

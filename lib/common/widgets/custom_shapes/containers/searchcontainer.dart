@@ -1,7 +1,6 @@
 import 'package:e_commerce_app/utils/theme/constants/colors.dart';
 import 'package:e_commerce_app/utils/theme/constants/sizes.dart';
 import 'package:e_commerce_app/utils/theme/device/device_utility.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:iconsax_flutter/iconsax_flutter.dart';
@@ -31,7 +30,7 @@ class TSearchContainer extends StatelessWidget {
     return GestureDetector(
       onTap: ontap,
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: Tsized.xs),
+        padding: const EdgeInsets.symmetric(horizontal: Tsized.xs),
         child: Container(
           width: TDeviceutils.getScreenWidth(context),
           padding: const EdgeInsets.all(Tsized.fontSizeMd),

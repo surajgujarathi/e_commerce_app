@@ -2,7 +2,6 @@ import 'package:e_commerce_app/utils/theme/constants/colors.dart';
 import 'package:e_commerce_app/utils/theme/constants/sizes.dart';
 import 'package:e_commerce_app/utils/theme/constants/text_strings.dart';
 import 'package:e_commerce_app/utils/theme/helpers/helpers_functions.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class TTermsConditionCheckBox extends StatelessWidget {
@@ -27,7 +26,7 @@ class TTermsConditionCheckBox extends StatelessWidget {
           TextSpan(
             children: [
               TextSpan(
-                  text: '${TTexts.iAgreeTo}',
+                  text: TTexts.iAgreeTo,
                   style: Theme.of(context).textTheme.bodySmall),
               TextSpan(
                   text: ' ${TTexts.privacyPolicy} ',

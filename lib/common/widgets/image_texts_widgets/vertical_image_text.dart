@@ -2,7 +2,6 @@ import 'package:e_commerce_app/utils/theme/constants/colors.dart';
 import 'package:e_commerce_app/utils/theme/constants/sizes.dart';
 import 'package:e_commerce_app/utils/theme/helpers/helpers_functions.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class TVerticalImageText extends StatelessWidget {
   const TVerticalImageText({
@@ -10,7 +9,7 @@ class TVerticalImageText extends StatelessWidget {
     required this.image,
     required this.title,
     this.textcolor = TColors.white,
-    this.backgroundcolor = TColors.white,
+    this.backgroundcolor,
     this.onTap,
   });
   final String image, title;
@@ -46,7 +45,7 @@ class TVerticalImageText extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: Tsized.spaceBtwItems / 2,
             ),
             SizedBox(

@@ -27,4 +27,9 @@ class TImages {
   static String product2 = "assets/images/products/product2.jpg";
 
   static String product3 = "assets/images/products/product3.png";
+  static String jacket = "assets/images/products/jacket.jpg";
+  static String nike1 = "assets/images/products/nike1.jpg";
+  static String nike2 = "assets/images/products/nike2.jpg";
+  static String profile = "assets/images/products/profile.png";
+  static String shoe = "assets/images/products/shoe.jpg";
 }

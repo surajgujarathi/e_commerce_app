@@ -17,12 +17,12 @@ class ResetPassword extends StatelessWidget {
         automaticallyImplyLeading: false,
         actions: [
           IconButton(
-              onPressed: () => Get.back(), icon: Icon(CupertinoIcons.clear))
+              onPressed: () => Get.back(), icon: const Icon(CupertinoIcons.clear))
         ],
       ),
       body: SingleChildScrollView(
         child: Padding(
-            padding: EdgeInsets.all(
+            padding: const EdgeInsets.all(
               Tsized.defaultSpace,
             ),
             child: Column(

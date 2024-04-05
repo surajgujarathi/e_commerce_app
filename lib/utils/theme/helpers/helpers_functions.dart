@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/route_manager.dart';
 import 'package:intl/intl.dart';
 
@@ -49,7 +48,7 @@ class THelperFunctions {
             actions: [
               TextButton(
                   onPressed: () => Navigator.of(context).pop(),
-                  child: Text('OK'))
+                  child: const Text('OK'))
             ],
           );
         });
