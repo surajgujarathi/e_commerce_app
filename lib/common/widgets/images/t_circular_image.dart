@@ -33,8 +33,8 @@ class TCircularImage extends StatelessWidget {
         //if image background color is null then swith it to light and dark mode color design
         color: backgroundColor ??
             (THelperFunctions.isDarkmode(context)
-                ? TColors.white
-                : TColors.black),
+                ? TColors.black
+                : TColors.white),
 
         borderRadius: BorderRadius.circular(100),
       ),

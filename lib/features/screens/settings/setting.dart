@@ -1,7 +1,9 @@
 import 'package:e_commerce_app/common/widgets/appbar/appbar.dart';
 import 'package:e_commerce_app/common/widgets/custom_shapes/containers/primary_header_container.dart';
 import 'package:e_commerce_app/common/widgets/texts/section_heading.dart';
+import 'package:e_commerce_app/features/screens/address/address.dart';
 import 'package:e_commerce_app/features/screens/list_tiles/setting_menu_tiles.dart';
+import 'package:e_commerce_app/features/screens/order/order.dart';
 import 'package:e_commerce_app/features/screens/settings/t_user_profile.dart';
 import 'package:e_commerce_app/utils/theme/constants/colors.dart';
 import 'package:e_commerce_app/utils/theme/constants/sizes.dart';
@@ -59,7 +61,7 @@ class SettingScreen extends StatelessWidget {
                     icon: Iconsax.safe_home,
                     title: 'My Adresses',
                     subtitle: 'Set Shopping delivery adress',
-                    onTap: () {},
+                    onTap: () => Get.to(() => const UserAddressScreen()),
                   ),
                   TsettingMenuTile(
                     icon: Iconsax.shopping_cart,
@@ -71,7 +73,7 @@ class SettingScreen extends StatelessWidget {
                     icon: Iconsax.bag_tick,
                     title: 'My Orders',
                     subtitle: 'In Progress and completed Orders',
-                    onTap: () {},
+                    onTap: () => Get.to(() => const OrderScreen()),
                   ),
                   TsettingMenuTile(
                     icon: Iconsax.bank,

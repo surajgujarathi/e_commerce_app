@@ -32,4 +32,8 @@ class TImages {
   static String nike2 = "assets/images/products/nike2.jpg";
   static String profile = "assets/images/products/profile.png";
   static String shoe = "assets/images/products/shoe.jpg";
+  static String paytm = "assets/icons/payements/paytm.png";
+  static String googlepay = "assets/icons/payements/google-pay.png";
+  static String visa = "assets/icons/payements/visa.png";
+  static String lottie = "assets/images/lottie/Animation - 1713172882155.json";
 }

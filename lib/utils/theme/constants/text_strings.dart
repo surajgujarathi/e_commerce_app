@@ -15,15 +15,16 @@ class TTexts {
 
   static const String firstName = "First Name";
 
-  static const String lastNome = "Last Name";
+  static const String lastName = "Last Name";
 
+  static const String nike = "Nike";
   static const String email = "E-Mail";
   static const String password = "Password";
 
   static const String newPassword = "New Password";
   static const String submit = "Submit";
 
-  static const String username = "Username";
+  static const String userName = "Username";
 
   static const String phoneNo = "Phone Number";
 

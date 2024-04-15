@@ -73,8 +73,9 @@ class TproductMetaData extends StatelessWidget {
               image: TImages.sneakers,
               width: 32,
               height: 32,
-              overlaycolor: darkMode ? TColors.white : TColors.black,
+              overlaycolor: darkMode ? TColors.white : TColors.dark,
             ),
+            const SizedBox(width: Tsized.spaceBtwItems / 1.5),
             const TBrandTitleWithVerifiedIcon(
               title: 'Nike',
               brandTextSize: Textsizes.medium,

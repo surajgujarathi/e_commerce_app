@@ -45,6 +45,13 @@ dependencies:
   flutter_native_splash: ^2.4.0
   smooth_page_indicator: ^1.1.0
   carousel_slider: ^4.2.1
+  readmore: ^3.0.0
+  flutter_rating_bar: ^4.0.1
+  firebase_core: ^2.29.0
+  connectivity_plus: ^6.0.2
+  lottie: ^3.1.0
+  cloud_firestore: ^4.16.1
+  firebase_auth: ^4.19.1
  
 
 dev_dependencies:
@@ -77,7 +84,13 @@ flutter:
     - assets/images/animations/  
     - assets/icons/categories/  
     - assets/images/banners/  
-    - assets/images/products/  
+    - assets/images/products/ 
+    - assets/icons/payements/
+    - assets/images/lottie/
+
+
+
+    
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
