@@ -87,7 +87,9 @@ class SignUpController extends GetxController {
           message: 'your account has been created! Verify email to continue.');
 
       // move to verify email screen
-      Get.to(() => const VerifyEmailScreen());
+      Get.to(() => VerifyEmailScreen(
+            email: email.text.trim(),
+          ));
     } catch (e) {
       TFullScreenLoader.stoploading();
       // show some genric error to user

@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/features/controllers/user_controller.dart';
 import 'package:e_commerce_app/utils/theme/constants/image_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
@@ -14,6 +15,7 @@ class TUserProfile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = UserController.instance;
     return ListTile(
       leading: TCircularImage(
         image: TImages.profile,
@@ -22,14 +24,14 @@ class TUserProfile extends StatelessWidget {
         padding: 0,
       ),
       title: Text(
-        'Surajgujarathi',
+        controller.user.value.fullName,
         style: Theme.of(context)
             .textTheme
             .headlineSmall!
             .apply(color: TColors.white),
       ),
       subtitle: Text(
-        'Surajgujarathi99@gmail.com',
+        controller.user.value.email,
         style:
             Theme.of(context).textTheme.bodyMedium!.apply(color: TColors.white),
       ),

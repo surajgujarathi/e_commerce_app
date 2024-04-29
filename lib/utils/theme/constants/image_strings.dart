@@ -36,4 +36,13 @@ class TImages {
   static String googlepay = "assets/icons/payements/google-pay.png";
   static String visa = "assets/icons/payements/visa.png";
   static String lottie = "assets/images/lottie/Animation - 1713172882155.json";
+
+  //categories
+  static String sports = "assets/images/products/football.png";
+  static String furniture = "assets/images/products/furnitures.png";
+  static String electronics = "assets/images/products/electronics.png";
+  static String clothes = "assets/images/products/clothes.png";
+  static String animals = "assets/images/products/animal.png";
+  static String cosmetics = "assets/images/products/cosmetics.png";
+  static String jewelery = "assets/images/products/jewelry.png";
 }

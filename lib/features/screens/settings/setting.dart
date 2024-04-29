@@ -3,7 +3,9 @@ import 'package:e_commerce_app/common/widgets/custom_shapes/containers/primary_h
 import 'package:e_commerce_app/common/widgets/texts/section_heading.dart';
 import 'package:e_commerce_app/features/screens/address/address.dart';
 import 'package:e_commerce_app/features/screens/list_tiles/setting_menu_tiles.dart';
+import 'package:e_commerce_app/features/screens/login/widgets/login.dart';
 import 'package:e_commerce_app/features/screens/order/order.dart';
+import 'package:e_commerce_app/features/screens/settings/load_data_screen.dart';
 import 'package:e_commerce_app/features/screens/settings/t_user_profile.dart';
 import 'package:e_commerce_app/utils/theme/constants/colors.dart';
 import 'package:e_commerce_app/utils/theme/constants/sizes.dart';
@@ -103,10 +105,12 @@ class SettingScreen extends StatelessWidget {
                   const TSectionHeading(
                       title: 'App settings', showActionButtton: false),
                   const SizedBox(height: Tsized.spaceBtwItems),
-                  const TsettingMenuTile(
-                      icon: Iconsax.document_upload,
-                      title: 'load data',
-                      subtitle: 'Upload data to ur cloud firebase'),
+                  TsettingMenuTile(
+                    icon: Iconsax.document_upload,
+                    title: 'load data',
+                    subtitle: 'Upload data to ur cloud firebase',
+                    onTap: () => Get.to(() => UploadImageToFirebase()),
+                  ),
                   TsettingMenuTile(
                     icon: Iconsax.location,
                     title: 'Geolocation',
@@ -129,7 +133,8 @@ class SettingScreen extends StatelessWidget {
                   SizedBox(
                     width: double.infinity,
                     child: OutlinedButton(
-                        onPressed: () {}, child: const Text('Logout')),
+                        onPressed: () => Get.offAll(() => const LoginScreen()),
+                        child: const Text('Logout')),
                   ),
                   const SizedBox(
                     height: Tsized.spaceBtwSections * 2.5,

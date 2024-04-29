@@ -5,6 +5,7 @@ import 'package:e_commerce_app/features/screens/product_details/product_details_
 import 'package:e_commerce_app/features/screens/product_details/product_meta_data.dart';
 import 'package:e_commerce_app/features/screens/product_details/product_reviews/product_details.dart';
 import 'package:e_commerce_app/features/screens/product_details/rating_share_widget.dart';
+import 'package:e_commerce_app/features/shop/models/product_model.dart';
 import 'package:e_commerce_app/utils/theme/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
@@ -12,7 +13,8 @@ import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:readmore/readmore.dart';
 
 class ProductDetail extends StatelessWidget {
-  const ProductDetail({super.key});
+  const ProductDetail({super.key, required this.productModel});
+  final ProductModel productModel;
 
   @override
   Widget build(BuildContext context) {

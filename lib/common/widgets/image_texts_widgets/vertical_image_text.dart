@@ -1,6 +1,6 @@
+import 'package:e_commerce_app/common/widgets/images/t_circular_image.dart';
 import 'package:e_commerce_app/utils/theme/constants/colors.dart';
 import 'package:e_commerce_app/utils/theme/constants/sizes.dart';
-import 'package:e_commerce_app/utils/theme/helpers/helpers_functions.dart';
 import 'package:flutter/material.dart';
 
 class TVerticalImageText extends StatelessWidget {
@@ -9,56 +9,75 @@ class TVerticalImageText extends StatelessWidget {
     required this.image,
     required this.title,
     this.textcolor = TColors.white,
-    this.backgroundcolor,
-    this.onTap,
+    this.backgroundcolor = TColors.white,
+    this.ontap,
+    this.isNetworkImage = true,
   });
   final String image, title;
   final Color textcolor;
   final Color? backgroundcolor;
-  final void Function()? onTap;
-
+  final void Function()? ontap;
+  final bool isNetworkImage;
   @override
   Widget build(BuildContext context) {
-    final dark = THelperFunctions.isDarkmode(context);
+    // final dark = THelperFunctions.isDarkmode(context);
     return GestureDetector(
-      onTap: onTap,
+      onTap: ontap,
       child: Padding(
         padding: const EdgeInsets.only(right: Tsized.spaceBtwItems),
         child: Column(
           children: [
             //circular icon
-            Container(
-              width: 56,
-              height: 56,
-              padding: const EdgeInsets.all(Tsized.sm),
-              decoration: BoxDecoration(
-                  color:
-                      backgroundcolor ?? (dark ? TColors.black : TColors.white),
-                  borderRadius: BorderRadius.circular(100)),
-              child: Center(
-                child: Image(
-                  image: AssetImage(image),
-                  fit: BoxFit.cover,
-                  color: THelperFunctions.isDarkmode(context)
-                      ? TColors.light
-                      : TColors.dark,
-                ),
-              ),
+
+            // Container(
+            //   width: 56,
+            //   height: 56,
+            //   padding: const EdgeInsets.all(TSizes.sm),
+            //   decoration: BoxDecoration(
+            //     color:
+            //         backgroundcolor ,
+            //         // ?? (dark ? TColors.white : TColors.white),
+            //     borderRadius: BorderRadius.circular(100),
+            //   ),
+            //   child: Center(
+            //     child: Image(
+            //       image: AssetImage(image),
+            //       // fit: BoxFit.cover,
+            //       // color: dark ? TColors.white : TColors.white,
+            //     ),
+            //   ),
+            // ),
+
+            TCircularImage(
+              image: image,
+              fit: BoxFit.fitWidth,
+              padding: Tsized.sm * 1.4,
+              isNetworkImage: isNetworkImage,
+              backgroundColor: backgroundcolor,
+              // overlaycolor: THelperFunctions.isDarkmode(context)
+              //     ? TColors.light
+              //     : TColors.dark,
             ),
+
+            // text
+
             const SizedBox(
               height: Tsized.spaceBtwItems / 2,
             ),
+
             SizedBox(
               width: 55,
-              child: Text(
-                title,
-                style: Theme.of(context).textTheme.labelMedium!.apply(
-                      color: textcolor,
-                    ),
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
+              child: Center(
+                child: Text(
+                  title,
+                  style: Theme.of(context).textTheme.labelMedium!.apply(
+                        color: textcolor,
+                      ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
               ),
-            )
+            ),
           ],
         ),
       ),

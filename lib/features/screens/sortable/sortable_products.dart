@@ -3,6 +3,8 @@ import 'package:e_commerce_app/common/widgets/product_cards/product_card_vertica
 import 'package:e_commerce_app/utils/theme/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
+import '../../shop/models/product_model.dart';
+
 class TSortableProducts extends StatelessWidget {
   const TSortableProducts({
     super.key,
@@ -36,7 +38,8 @@ class TSortableProducts extends StatelessWidget {
         ),
         TGridLayout(
             itemCount: 8,
-            itemBuilder: (_, index) => const TProductCardVertical())
+            itemBuilder: (_, index) =>
+                TProductCardVertical(product: ProductModel.empty()))
       ],
     );
   }

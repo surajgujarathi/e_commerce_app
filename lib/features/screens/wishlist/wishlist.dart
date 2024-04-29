@@ -2,11 +2,14 @@ import 'package:e_commerce_app/common/widgets/appbar/appbar.dart';
 import 'package:e_commerce_app/common/widgets/icons/t_circular_icon.dart';
 import 'package:e_commerce_app/common/widgets/layouts/grid_layout.dart';
 import 'package:e_commerce_app/common/widgets/product_cards/product_card_vertical.dart';
+import 'package:e_commerce_app/features/controllers/product_controller.dart';
 import 'package:e_commerce_app/features/screens/home/widgets/home.dart';
+import 'package:e_commerce_app/features/shop/models/product_model.dart';
 import 'package:e_commerce_app/utils/theme/constants/colors.dart';
 import 'package:e_commerce_app/utils/theme/constants/sizes.dart';
 import 'package:e_commerce_app/utils/theme/helpers/helpers_functions.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/route_manager.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
@@ -15,6 +18,7 @@ class FavouriteScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(ProductController());
     return Scaffold(
       appBar: TAppBar(
         title:
@@ -34,7 +38,11 @@ class FavouriteScreen extends StatelessWidget {
         child: Column(
           children: [
             TGridLayout(
-                itemCount: 6, itemBuilder: (_, index) => const TProductCardVertical())
+              itemCount: controller.featuredProducts.length,
+              itemBuilder: (_, index) => TProductCardVertical(
+                product: controller.featuredProducts[index],
+              ),
+            ),
           ],
         ),
       ),

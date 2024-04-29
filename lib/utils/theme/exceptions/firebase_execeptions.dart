@@ -1,3 +1,5 @@
+import 'package:e_commerce_app/utils/theme/logging/logger.dart';
+
 class TFirebaseException implements Exception {
   final String code;
 
@@ -5,6 +7,7 @@ class TFirebaseException implements Exception {
   TFirebaseException(this.code);
 
   String get message {
+    TLoggerHelper.error('code $code');
     switch (code) {
       case 'unknown':
         return 'An unknown Firebase error occured. please try again.';
@@ -24,7 +27,7 @@ class TFirebaseException implements Exception {
       case 'invalid email':
         return 'the email adrress provided is invalid. please enter a valid email';
 
-      case 'email already in use':
+      case 'email-already-in-use':
         return 'the email adress is already is registered. please use a diffirent email.';
 
       case 'Wrong password':

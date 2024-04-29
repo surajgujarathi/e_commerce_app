@@ -6,6 +6,7 @@ import 'package:e_commerce_app/common/widgets/layouts/grid_layout.dart';
 import 'package:e_commerce_app/common/widgets/products.cart/cart_menu_icon.dart';
 import 'package:e_commerce_app/common/widgets/texts/section_heading.dart';
 import 'package:e_commerce_app/common/widgets/brands/t_brand_card.dart';
+import 'package:e_commerce_app/features/controllers/category_controller.dart';
 import 'package:e_commerce_app/features/screens/brand/all_brands.dart';
 import 'package:e_commerce_app/utils/theme/constants/colors.dart';
 import 'package:e_commerce_app/utils/theme/constants/sizes.dart';
@@ -18,8 +19,10 @@ class Store extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final categories = CategoryController.instance.featuredCategories;
+
     return DefaultTabController(
-      length: 5,
+      length: categories.length,
       child: Scaffold(
           //backgroundColor: Colors.amber,
           appBar: TAppBar(
@@ -81,27 +84,19 @@ class Store extends StatelessWidget {
                     ),
                   ),
                   //tabs
-                  bottom: const TTabBar(
-                    tabs: [
-                      Tab(child: Text('Sports')),
-                      Tab(child: Text('Furniture')),
-                      Tab(child: Text('Electronics')),
-                      Tab(child: Text('Clothes')),
-                      Tab(child: Text('Cosemetics'))
-                    ],
-                  ),
-                )
+                  bottom: TTabBar(
+                      tabs: categories
+                          .map((category) => Tab(child: Text(category.name)))
+                          .toList()),
+                ),
               ];
             },
-            body: const TabBarView(
-              children: [
-                Tcategorytab(),
-                Tcategorytab(),
-                Tcategorytab(),
-                Tcategorytab(),
-                Tcategorytab(),
-              ],
-            ),
+            body: TabBarView(
+                children: categories
+                    .map((Category) => Tcategorytab(
+                          category: Category,
+                        ))
+                    .toList()),
           )),
     );
   }
