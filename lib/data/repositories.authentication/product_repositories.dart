@@ -1,8 +1,6 @@
-import 'dart:convert';
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:e_commerce_app/features/shop/models/brandmodel.dart';
 import 'package:e_commerce_app/features/shop/models/product_model.dart';
 import 'package:e_commerce_app/firebase_storage_services.dart';
 import 'package:e_commerce_app/utils/theme/constants/enums.dart';
@@ -86,8 +84,17 @@ class ProductRepository extends GetxController {
           product.images!.addAll(imagesUrl);
         }
 
+        //upload brand images
+        if (product.brand?.image != null) {
+          final imageData =
+              await storage.getImageDataFromAssets(product.brand!.image!);
+          final url = await storage.uploadImageData(
+              'Brands/Images', imageData, product.brand!.image!);
+          product.brand!.image = url;
+        }
+
         //upload variation images
-        if (product.productType == ProductType.variable.toString()) {
+        if (product.productType == ProductType.single.toString()) {
           for (var variation in product.productVariations!) {
             //Get image data link from local assets
             final assetImage =

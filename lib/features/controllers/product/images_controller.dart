@@ -44,6 +44,7 @@ class ImageController extends GetxController {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisSize: MainAxisSize.min,
                 children: [
+                  Image.network(image),
                   const Padding(
                     padding: EdgeInsets.symmetric(
                         vertical: Tsized.defaultSpace * 2,

@@ -4,7 +4,6 @@ import 'package:e_commerce_app/common/widgets/icons/t_circular_icon.dart';
 import 'package:e_commerce_app/common/widgets/images/t_rounded_image.dart';
 import 'package:e_commerce_app/features/controllers/product/images_controller.dart';
 import 'package:e_commerce_app/features/shop/models/product_model.dart';
-import 'package:e_commerce_app/utils/theme/constants/image_strings.dart';
 import 'package:e_commerce_app/utils/theme/helpers/helpers_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -66,7 +65,7 @@ class TProductImageSlider extends StatelessWidget {
                   separatorBuilder: (_, __) => const SizedBox(
                     width: Tsized.spaceBtwItems,
                   ),
-                  itemCount: images.length - 1,
+                  itemCount: images.length,
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
                   physics: const AlwaysScrollableScrollPhysics(),

@@ -37,9 +37,14 @@ class ProductDetail extends StatelessWidget {
                   //rating and share button
                   const TRatingAndShare(),
 
-                  //price,title
-                  const TproductMetaData(),
+                  //price,title,stocks&brand
+
+                  TproductMetaData(
+                    product: product,
+                  ),
                   const SizedBox(height: Tsized.spaceBtwItems),
+                  //attributes
+
                   const TProductAttributes(),
 
                   const SizedBox(height: Tsized.spaceBtwSections),
