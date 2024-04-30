@@ -191,7 +191,13 @@ class TDummyData {
             name: 'Nike',
             productsCount: 265,
             isFeatured: true),
-        images: [TImages.jacket, TImages.shoe, TImages.google],
+        images: [
+          TImages.jacket,
+          TImages.shoe,
+          TImages.google,
+          TImages.jacket,
+          TImages.jacket
+        ],
         salePrice: 1000,
         sku: 'ABR4568',
         categoryId: '1',
@@ -223,11 +229,17 @@ class TDummyData {
         description: 'Green Nike sports Shoe',
         brand: BrandModel(
             id: '1',
-            image: TImages.nike1,
+            image: TImages.clothes,
             name: 'Nike',
             productsCount: 265,
             isFeatured: true),
-        images: [TImages.jacket, TImages.shoe, TImages.google],
+        images: [
+          TImages.jacket,
+          TImages.shoe,
+          TImages.google,
+          TImages.clothes,
+          TImages.cosmetics
+        ],
         salePrice: 30,
         sku: 'ABR4568',
         categoryId: '1',
@@ -299,7 +311,13 @@ class TDummyData {
             name: 'Ball',
             productsCount: 265,
             isFeatured: true),
-        images: [TImages.jacket, TImages.shoe, TImages.google],
+        images: [
+          TImages.jacket,
+          TImages.shoe,
+          TImages.google,
+          TImages.electronics,
+          TImages.jewelery
+        ],
         salePrice: 30,
         sku: 'ABR4568',
         categoryId: '1',

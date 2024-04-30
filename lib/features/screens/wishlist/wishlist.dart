@@ -2,7 +2,7 @@ import 'package:e_commerce_app/common/widgets/appbar/appbar.dart';
 import 'package:e_commerce_app/common/widgets/icons/t_circular_icon.dart';
 import 'package:e_commerce_app/common/widgets/layouts/grid_layout.dart';
 import 'package:e_commerce_app/common/widgets/product_cards/product_card_vertical.dart';
-import 'package:e_commerce_app/features/controllers/product_controller.dart';
+import 'package:e_commerce_app/features/controllers/product/product_controller.dart';
 import 'package:e_commerce_app/features/screens/home/widgets/home.dart';
 import 'package:e_commerce_app/features/shop/models/product_model.dart';
 import 'package:e_commerce_app/utils/theme/constants/colors.dart';

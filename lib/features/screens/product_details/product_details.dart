@@ -13,8 +13,9 @@ import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:readmore/readmore.dart';
 
 class ProductDetail extends StatelessWidget {
-  const ProductDetail({super.key, required this.productModel});
-  final ProductModel productModel;
+  const ProductDetail({super.key, required this.product});
+
+  final ProductModel product;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +25,8 @@ class ProductDetail extends StatelessWidget {
         child: Column(
           children: [
             //product image slider
-            const TProductImageSlider(),
+            TProductImageSlider(product: product),
+
             Padding(
               padding: const EdgeInsets.only(
                   right: Tsized.defaultSpace,
