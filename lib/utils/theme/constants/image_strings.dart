@@ -35,6 +35,8 @@ class TImages {
   static String paytm = "assets/icons/payements/paytm.png";
   static String googlepay = "assets/icons/payements/google-pay.png";
   static String visa = "assets/icons/payements/visa.png";
+  static String nike3 = "assets/images/products/nike3.png";
+  static String nike4 = "assets/images/products/nike4.png";
   static String lottie = "assets/images/lottie/Animation - 1713172882155.json";
 
   //categories

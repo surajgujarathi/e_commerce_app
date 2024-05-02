@@ -87,14 +87,14 @@ class ProductRepository extends GetxController {
         //upload brand images
         if (product.brand?.image != null) {
           final imageData =
-              await storage.getImageDataFromAssets(product.brand!.image!);
+              await storage.getImageDataFromAssets(product.brand!.image);
           final url = await storage.uploadImageData(
-              'Brands/Images', imageData, product.brand!.image!);
+              'Brands/Images', imageData, product.brand!.image);
           product.brand!.image = url;
         }
 
         //upload variation images
-        if (product.productType == ProductType.single.toString()) {
+        if (product.productType == ProductType.variable.toString()) {
           for (var variation in product.productVariations!) {
             //Get image data link from local assets
             final assetImage =

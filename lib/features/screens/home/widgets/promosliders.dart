@@ -41,10 +41,10 @@ class TPromoSlider extends StatelessWidget {
                       ))
                   .toList(),
               options: CarouselOptions(
-                viewportFraction: 1,
-                onPageChanged: (index, _) =>
-                    controller.updatePageIndicator(index),
-              ),
+                  viewportFraction: 1,
+                  onPageChanged: (index, _) =>
+                      controller.updatePageIndicator(index),
+                  autoPlay: true),
             ),
             const SizedBox(
               height: Tsized.spaceBtwItems,

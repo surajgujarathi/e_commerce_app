@@ -35,51 +35,61 @@ class ProductController extends GetxController {
     }
   }
 
-  //Get products price or price range for variation
+  // get the product price or price range for varoations
+
   String getProductPrice(ProductModel product) {
     double smallestPrice = double.infinity;
     double largestPrice = 0.0;
 
-    //if no variations exist ,return the simple price or sale price
+// If no variations exist, return the simple price or sale price
+
     if (product.productType == ProductType.single.toString()) {
       return (product.salePrice > 0 ? product.salePrice : product.price)
           .toString();
     } else {
-      //calculates the smallest and largest prices among variation
+      // Calculate the smallest and largest prices among variations
       for (var variation in product.productVariations!) {
-        //determine the price to consider
-        double priceConsider =
+        // Determine the price to consider (sale price if available, otherwise regular price)
+
+        double priceToConsider =
             variation.salePrice > 0.0 ? variation.salePrice : variation.price;
 
-        //update smallest and largest prices
-        if (priceConsider < smallestPrice) {
-          largestPrice = priceConsider;
+// Update smallest and largest prices
+
+        if (priceToConsider < smallestPrice) {
+          smallestPrice = priceToConsider;
         }
-        if (priceConsider > largestPrice) {
-          largestPrice = priceConsider;
+
+        if (priceToConsider > largestPrice) {
+          largestPrice = priceToConsider;
         }
       }
-      //if smallest and largest prices are same return a single price
+      // If smallest and largest prices are the same, return a single price
+
       if (smallestPrice.isEqual(largestPrice)) {
         return largestPrice.toString();
       } else {
-        //otherwise retuen price range
-        return '$smallestPrice -\$$largestPrice';
+        // Otherwise, return a price range
+        return '$smallestPrice - \$$largestPrice';
       }
     }
   }
 
-//calculates discount percentage
+  // -- Calculate Discount Percentage.
 
   String? calculateSalePercentage(double originalPrice, double? salePrice) {
     if (salePrice == null || salePrice <= 0.0) return null;
+
     if (originalPrice <= 0) return null;
+
     double percentage = ((originalPrice - salePrice) / originalPrice) * 100;
+
     return percentage.toStringAsFixed(0);
   }
 
-  //check product stock status
+  /// -- Check Product Stock Status
+
   String getProductStockStatus(int stock) {
-    return stock > 0 ? 'In Stock' : 'Out Of stock';
+    return stock > 0 ? 'In Stock' : 'Out of Stock';
   }
 }

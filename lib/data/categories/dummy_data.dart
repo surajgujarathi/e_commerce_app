@@ -181,9 +181,9 @@ class TDummyData {
         id: '001',
         title: 'Green Nike Sports Shoe',
         stock: 15,
-        price: 1000,
+        price: 135,
         isFeatured: true,
-        thumbnail: TImages.jacket,
+        thumbnail: TImages.sneakers,
         description: 'Green Nike sports Shoe',
         brand: BrandModel(
             id: '1',
@@ -191,51 +191,54 @@ class TDummyData {
             name: 'Nike',
             productsCount: 265,
             isFeatured: true),
-        images: [
-          TImages.jacket,
-          TImages.shoe,
-          TImages.google,
-          TImages.jacket,
-        ],
+        // images: [
+        //   TImages.jacket,
+        //   // TImages.shoe,
+        //   // TImages.google,
+        //   // TImages.jacket,
+        // ],
         salePrice: 500,
         sku: 'ABR4568',
         categoryId: '1',
         productAttributes: [
           ProductAttributeModel(
-              name: 'Color', values: ['Green', 'Black', 'Red']),
+              name: 'Color', values: ['Blue', 'Pink', 'Green']),
           ProductAttributeModel(
-              name: 'Size', values: ['EU 30', 'EU 32', 'EU34']),
+              name: 'Size', values: ['EU 30', 'EU 32', 'EU 34']),
         ],
         productVariations: [
           ProductVariationModel(
               id: '1',
               stock: 34,
               price: 134,
-              salePrice: 122.8,
-              image: TImages.facebook,
+              salePrice: 200.8,
+              image: TImages.nike3,
               description:
                   'This is a product description for Green Nike Sport Shoe',
-              attributeValues: {'Color': 'Green', 'Size': 'EU 34'}),
+              attributeValues: {
+                'Color': 'Green',
+                'Size': 'EU 34',
+              }),
           ProductVariationModel(
               id: '2',
               stock: 34,
-              price: 220,
-              salePrice: 125,
-              image: TImages.electronics,
+              price: 234,
+              salePrice: 300,
+              image: TImages.shoe,
               description:
-                  'This is a product description for Green Nike Sport Shoe',
-              attributeValues: {'Color': 'Green', 'Size': 'EU 34'}),
+                  'This is a product description for Blue Nike Sport Shoe',
+              attributeValues: {'Color': 'Blue', 'Size': 'EU 32'}),
           ProductVariationModel(
               id: '3',
               stock: 34,
-              price: 300,
-              salePrice: 150,
-              image: TImages.electronics,
+              price: 334,
+              salePrice: 400,
+              image: TImages.nike1,
               description:
                   'This is a product description for Green Nike Sport Shoe',
-              attributeValues: {'Color': 'Green', 'Size': 'EU 34'})
+              attributeValues: {'Color': 'Pink', 'Size': 'EU 30'})
         ],
-        productType: 'ProductType.single'),
+        productType: 'ProductType.variable'),
 
     //2nd
     ProductModel(
@@ -244,7 +247,7 @@ class TDummyData {
         stock: 15,
         price: 500,
         isFeatured: true,
-        thumbnail: TImages.sneakers,
+        thumbnail: TImages.jacket,
         description: 'Green Nike sports Shoe',
         brand: BrandModel(
             id: '1',
@@ -281,6 +284,7 @@ class TDummyData {
         ],
         productType: 'ProductType.single'),
 
+//3rd
     ProductModel(
         id: '003',
         title: 'Green Nike Sports Shoe',
@@ -326,6 +330,8 @@ class TDummyData {
               attributeValues: {'Color': 'Green', 'Size': 'EU 34'}),
         ],
         productType: 'ProductType.single'),
+
+    //4th
     ProductModel(
         id: '004',
         title: 'Green Nike Sports Shoe',

@@ -6,6 +6,7 @@ import 'package:e_commerce_app/features/screens/product_details/product_meta_dat
 import 'package:e_commerce_app/features/screens/product_details/product_reviews/product_details.dart';
 import 'package:e_commerce_app/features/screens/product_details/rating_share_widget.dart';
 import 'package:e_commerce_app/features/shop/models/product_model.dart';
+import 'package:e_commerce_app/utils/theme/constants/enums.dart';
 import 'package:e_commerce_app/utils/theme/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
@@ -45,9 +46,13 @@ class ProductDetail extends StatelessWidget {
                   const SizedBox(height: Tsized.spaceBtwItems),
                   //attributes
 
-                  const TProductAttributes(),
+                  if (product.productType == ProductType.variable.toString())
+                    TProductAttributes(
+                      product: product,
+                    ),
 
-                  const SizedBox(height: Tsized.spaceBtwSections),
+                  if (product.productType == ProductType.variable.toString())
+                    const SizedBox(height: Tsized.spaceBtwSections),
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
@@ -56,11 +61,13 @@ class ProductDetail extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: Tsized.spaceBtwSections),
+                  //description
+
                   const TSectionHeading(
                       title: 'Description', showActionButtton: false),
                   const SizedBox(height: Tsized.spaceBtwItems),
-                  const ReadMoreText(
-                    'This is a product description for the brand nike shoes , there are more things that cam be added into it but for now i only added this in the read more text widget...',
+                  ReadMoreText(
+                    product.description ?? '',
                     trimLines: 2,
                     trimMode: TrimMode.Line,
                     trimCollapsedText: 'Show more',

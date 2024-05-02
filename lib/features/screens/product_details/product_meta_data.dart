@@ -53,7 +53,9 @@ class TproductMetaData extends StatelessWidget {
                     .titleSmall!
                     .apply(decoration: TextDecoration.lineThrough),
               ),
-            const SizedBox(width: Tsized.spaceBtwItems),
+            if (product.productType == ProductType.single.toString() &&
+                product.salePrice > 0)
+              const SizedBox(width: Tsized.spaceBtwItems),
             TProductPriceText(
               price: controller.getProductPrice(product),
               isLarge: true,
@@ -61,9 +63,7 @@ class TproductMetaData extends StatelessWidget {
           ],
         ),
         const SizedBox(width: Tsized.spaceBtwItems / 1.5),
-        const TProductTitleText(
-          title: 'Blue Nike Sport shoes',
-        ),
+        TProductTitleText(title: product.title),
         const SizedBox(width: Tsized.spaceBtwItems / 1.5),
         Row(
           children: [
@@ -72,7 +72,7 @@ class TproductMetaData extends StatelessWidget {
             ),
             const SizedBox(width: Tsized.spaceBtwItems),
             Text(
-              'In Stock',
+              controller.getProductStockStatus(product.stock),
               style: Theme.of(context).textTheme.titleMedium,
             ),
           ],
@@ -81,14 +81,15 @@ class TproductMetaData extends StatelessWidget {
         Row(
           children: [
             TCircularImage(
-              image: TImages.sneakers,
+              isNetworkImage: true,
+              image: product.brand != null ? product.brand!.image : '',
               width: 32,
               height: 32,
-              overlaycolor: darkMode ? TColors.white : TColors.dark,
+              // overlaycolor: darkMode ? TColors.white : TColors.dark,
             ),
             const SizedBox(width: Tsized.spaceBtwItems / 1.5),
-            const TBrandTitleWithVerifiedIcon(
-              title: 'Nike',
+            TBrandTitleWithVerifiedIcon(
+              title: product.brand != null ? product.brand!.name : '',
               brandTextSize: Textsizes.medium,
             ),
           ],
