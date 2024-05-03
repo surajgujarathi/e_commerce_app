@@ -1,22 +1,34 @@
 import 'package:e_commerce_app/common/widgets/layouts/grid_layout.dart';
 import 'package:e_commerce_app/common/widgets/product_cards/product_card_vertical.dart';
+import 'package:e_commerce_app/features/controllers/product/all_product_controller.dart';
 import 'package:e_commerce_app/utils/theme/constants/sizes.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_state_manager/get_state_manager.dart';
 
 import '../../shop/models/product_model.dart';
 
 class TSortableProducts extends StatelessWidget {
   const TSortableProducts({
-    super.key,
-  });
+    Key? key,
+    required this.products,
+  }) : super(key: key);
+
+  final List<ProductModel> products;
 
   @override
   Widget build(BuildContext context) {
+    //Intilaize controller for managing product sorting
+    final controller = Get.put(AllProductsController());
+    controller.assignProducts(products);
     return Column(
       children: [
+        //dropdown
         DropdownButtonFormField(
           decoration: const InputDecoration(prefixIcon: Icon(Icons.sort)),
+          value: controller.selectedSortOption.value,
           onChanged: (value) {
+            controller.sortProducts(value!);
             // Handle the selection change here
           },
           items: [
@@ -36,10 +48,13 @@ class TSortableProducts extends StatelessWidget {
         const SizedBox(
           height: Tsized.spaceBtwSections,
         ),
-        TGridLayout(
-            itemCount: 8,
-            itemBuilder: (_, index) =>
-                TProductCardVertical(product: ProductModel.empty()))
+        //products
+        Obx(
+          () => TGridLayout(
+              itemCount: controller.products.length,
+              itemBuilder: (_, index) =>
+                  TProductCardVertical(product: controller.products[index])),
+        )
       ],
     );
   }

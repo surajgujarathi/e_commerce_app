@@ -111,7 +111,7 @@ class ProductModel {
       thumbnail: data['Thumbnail'] ?? '',
       categoryId: data['CategoryId'] ?? '',
       description: data['Description'] ?? '',
-      productType: data['ProductionType'] ??
+      productType: data['ProductType'] ??
           '', // Corrected 'ProductionType' to 'ProductType'
       brand: BrandModel.fromJson(data['Brand']),
       images: data['Images'] != null ? List<String>.from(data['Images']) : [],
