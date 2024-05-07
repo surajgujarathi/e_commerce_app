@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/common/shimmer/brand_shimmer.dart';
 import 'package:e_commerce_app/common/widgets/appbar/appbar.dart';
 import 'package:e_commerce_app/common/widgets/appbar/t_tabbar.dart';
 import 'package:e_commerce_app/common/widgets/categories_tab.dart';
@@ -7,18 +8,22 @@ import 'package:e_commerce_app/common/widgets/products.cart/cart_menu_icon.dart'
 import 'package:e_commerce_app/common/widgets/texts/section_heading.dart';
 import 'package:e_commerce_app/common/widgets/brands/t_brand_card.dart';
 import 'package:e_commerce_app/features/controllers/category_controller.dart';
+import 'package:e_commerce_app/features/controllers/product/brand_controller.dart';
 import 'package:e_commerce_app/features/screens/brand/all_brands.dart';
+import 'package:e_commerce_app/features/screens/brand/brand_products.dart';
 import 'package:e_commerce_app/utils/theme/constants/colors.dart';
 import 'package:e_commerce_app/utils/theme/constants/sizes.dart';
 import 'package:e_commerce_app/utils/theme/helpers/helpers_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get/get_state_manager/get_state_manager.dart';
 
 class Store extends StatelessWidget {
   const Store({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final brandController = Get.put(BrandController());
     final categories = CategoryController.instance.featuredCategories;
 
     return DefaultTabController(
@@ -63,6 +68,8 @@ class Store extends StatelessWidget {
                         const SizedBox(
                           height: Tsized.spaceBtwSections,
                         ),
+
+                        //Featured Brands
                         TSectionHeading(
                           title: 'Feature Brands',
                           showActionButtton: true,
@@ -72,14 +79,36 @@ class Store extends StatelessWidget {
                           height: Tsized.spaceBtwItems / 1.5,
                         ),
                         //brands grid
-                        TGridLayout(
-                            itemCount: 4,
-                            mainAxisExtent: 80,
-                            itemBuilder: (_, index) {
-                              return const TBrandCard(
-                                showborder: true,
-                              );
-                            })
+                        Obx(() {
+                          if (brandController.isLoading.value) {
+                            return const TBrandsShimmer();
+                          }
+                          if (brandController.featuredBrands.isEmpty) {
+                            return Center(
+                              child: Text(
+                                'No Data Found!',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyMedium!
+                                    .apply(color: Colors.white),
+                              ),
+                            );
+                          }
+                          return TGridLayout(
+                              itemCount: brandController.featuredBrands.length,
+                              mainAxisExtent: 80,
+                              itemBuilder: (_, index) {
+                                final brand =
+                                    brandController.featuredBrands[index];
+
+                                return TBrandCard(
+                                  showborder: true,
+                                  brand: brand,
+                                  Ontap: () =>
+                                      Get.to(() => BrandProducts(brand: brand)),
+                                );
+                              });
+                        })
                       ],
                     ),
                   ),

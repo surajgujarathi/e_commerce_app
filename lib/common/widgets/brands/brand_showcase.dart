@@ -1,10 +1,10 @@
 import 'package:e_commerce_app/common/widgets/brands/t_brand_card.dart';
 import 'package:e_commerce_app/common/widgets/custom_shapes/containers/rounded_container.dart';
+import 'package:e_commerce_app/features/shop/models/brandmodel.dart';
 import 'package:e_commerce_app/utils/theme/constants/colors.dart';
 import 'package:e_commerce_app/utils/theme/constants/sizes.dart';
 import 'package:e_commerce_app/utils/theme/helpers/helpers_functions.dart';
 import 'package:flutter/material.dart';
-
 
 class TbrandShowcase extends StatelessWidget {
   const TbrandShowcase({
@@ -23,7 +23,10 @@ class TbrandShowcase extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: Tsized.spaceBtwItems),
       child: Column(
         children: [
-          const TBrandCard(showborder: false),
+          TBrandCard(
+            showborder: false,
+            brand: BrandModel.empty(),
+          ),
           const SizedBox(
             height: Tsized.spaceBtwItems,
           ),

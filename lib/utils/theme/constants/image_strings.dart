@@ -47,4 +47,15 @@ class TImages {
   static String animals = "assets/images/products/animal.png";
   static String cosmetics = "assets/images/products/cosmetics.png";
   static String jewelery = "assets/images/products/jewelry.png";
+
+  //brands
+  static String zaralogo = "assets/images/products/zara.png";
+  static String nike = "assets/images/products/Nike-Logo.png";
+  static String adidass = "assets/images/products/Adidas_logo.png";
+  static String pumalogo = "assets/images/products/puma.png";
+
+  static String adidasshoe = "assets/images/products/adidas1.jpg.avif";
+  static String zarashoe = "assets/images/products/zarashoe.jpg";
+
+  static String pumashoe = "assets/images/products/puma1.avif";
 }

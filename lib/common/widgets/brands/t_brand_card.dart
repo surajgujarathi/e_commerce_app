@@ -1,7 +1,7 @@
 import 'package:e_commerce_app/common/widgets/images/t_circular_image.dart';
 import 'package:e_commerce_app/common/widgets/texts/t_brand__verified_icon.dart';
+import 'package:e_commerce_app/features/shop/models/brandmodel.dart';
 import 'package:e_commerce_app/utils/theme/constants/enums.dart';
-import 'package:e_commerce_app/utils/theme/constants/image_strings.dart';
 import 'package:e_commerce_app/utils/theme/constants/sizes.dart';
 import 'package:e_commerce_app/utils/theme/helpers/helpers_functions.dart';
 import 'package:flutter/material.dart';
@@ -14,9 +14,11 @@ class TBrandCard extends StatelessWidget {
     super.key,
     this.Ontap,
     required this.showborder,
+    required this.brand,
   });
   final bool showborder;
   final void Function()? Ontap;
+  final BrandModel brand;
 
   @override
   Widget build(BuildContext context) {
@@ -31,12 +33,12 @@ class TBrandCard extends StatelessWidget {
             Flexible(
               child: TCircularImage(
                 ///--Icons
-                isNetworkImage: false,
+                isNetworkImage: true,
                 backgroundColor: Colors.transparent,
-                overlaycolor: THelperFunctions.isDarkmode(context)
-                    ? TColors.white
-                    : TColors.black,
-                image: TImages.sneakers,
+                // overlaycolor: THelperFunctions.isDarkmode(context)
+                //     ? TColors.white
+                //     : TColors.black,
+                image: brand.image,
               ),
             ),
             const SizedBox(
@@ -49,12 +51,12 @@ class TBrandCard extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const TBrandTitleWithVerifiedIcon(
-                    title: 'Nike',
+                  TBrandTitleWithVerifiedIcon(
+                    title: brand.name,
                     brandTextSize: Textsizes.large,
                   ),
                   Text(
-                    '256 Products',
+                    '${brand.productsCount ?? 0}products',
                     overflow: TextOverflow.ellipsis,
                     style: Theme.of(context).textTheme.labelMedium,
                   )

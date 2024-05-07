@@ -56,22 +56,24 @@ class TProductCardVertical extends StatelessWidget {
                       isNetworkimage: true,
                     ),
                   ),
-                  Positioned(
-                    top: 12,
-                    child: TRoundedContainer(
-                      radius: Tsized.sm,
-                      backgroundColor: TColors.secondary.withOpacity(0.8),
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: Tsized.sm, vertical: Tsized.xs),
-                      child: Text(
-                        '$salePercentage%',
-                        style: Theme.of(context)
-                            .textTheme
-                            .labelLarge!
-                            .apply(color: TColors.black),
+                  //sale tag
+                  if (salePercentage != null)
+                    Positioned(
+                      top: 12,
+                      child: TRoundedContainer(
+                        radius: Tsized.sm,
+                        backgroundColor: TColors.secondary.withOpacity(0.8),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: Tsized.sm, vertical: Tsized.xs),
+                        child: Text(
+                          '$salePercentage%',
+                          style: Theme.of(context)
+                              .textTheme
+                              .labelLarge!
+                              .apply(color: TColors.black),
+                        ),
                       ),
                     ),
-                  ),
                   const Positioned(
                     top: 0,
                     right: 0,

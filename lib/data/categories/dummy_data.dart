@@ -19,6 +19,35 @@ class TDummyData {
         imageUrl: TImages.zara, targetScreen: TRoutes.favourites, active: true),
   ];
 
+  // List of all brands
+  static final List<BrandModel> brands = [
+    BrandModel(
+        id: '1',
+        image: TImages.zaralogo,
+        name: 'Zara',
+        productsCount: 11,
+        isFeatured: true),
+    BrandModel(
+        id: '2',
+        image: TImages.pumalogo,
+        name: 'puma',
+        productsCount: 11,
+        isFeatured: true),
+    BrandModel(
+        id: '3',
+        image: TImages.adidass,
+        name: 'Adidas',
+        productsCount: 11,
+        isFeatured: true),
+    BrandModel(
+        id: '4',
+        image: TImages.nike,
+        name: 'Nike',
+        productsCount: 11,
+        isFeatured: true),
+    //  BrandModel(id: '5', image: TImages.shoeBrandtttt, name: 'Snikker', productsCount: 11,isFeatured: true),
+  ];
+
   //  // User
   // static final UserModel user = UserModel(
   //   firstname: 'Suraj',
@@ -251,8 +280,8 @@ class TDummyData {
         description: 'Green Nike sports Shoe',
         brand: BrandModel(
             id: '1',
-            image: TImages.clothes,
-            name: 'Nike',
+            image: TImages.adidasshoe,
+            name: 'Adidas',
             productsCount: 265,
             isFeatured: true),
         images: [
@@ -295,7 +324,7 @@ class TDummyData {
         description: 'Green Nike sports Shoe',
         brand: BrandModel(
             id: '1',
-            image: TImages.nike1,
+            image: TImages.zarashoe,
             name: 'Nike',
             productsCount: 265,
             isFeatured: true),
