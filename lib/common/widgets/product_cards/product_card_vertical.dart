@@ -1,5 +1,6 @@
 import 'package:e_commerce_app/common/styles/shadows.dart';
 import 'package:e_commerce_app/common/widgets/custom_shapes/containers/rounded_container.dart';
+import 'package:e_commerce_app/common/widgets/favourite_icon/favourite_icon.dart';
 import 'package:e_commerce_app/common/widgets/icons/t_circular_icon.dart';
 import 'package:e_commerce_app/common/widgets/images/t_rounded_image.dart';
 import 'package:e_commerce_app/common/widgets/texts/product_price_text.dart';
@@ -74,14 +75,12 @@ class TProductCardVertical extends StatelessWidget {
                         ),
                       ),
                     ),
-                  const Positioned(
-                    top: 0,
-                    right: 0,
-                    child: TCircularIcon(
-                      icon: Iconsax.heart,
-                      color: Colors.red,
-                    ),
-                  )
+                  Positioned(
+                      top: 0,
+                      right: 0,
+                      child: TFavouriteIcon(
+                        productId: product.id,
+                      ))
                 ],
               ),
             ),

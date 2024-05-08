@@ -6,6 +6,7 @@ import 'package:e_commerce_app/navigation_menu.dart';
 import 'package:e_commerce_app/utils/theme/exceptions/firebase_auth_exceptions.dart';
 import 'package:e_commerce_app/utils/theme/exceptions/firebase_execeptions.dart';
 import 'package:e_commerce_app/utils/theme/exceptions/platform_exception.dart';
+import 'package:e_commerce_app/utils/theme/local_storage/storage_utility.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
@@ -40,13 +41,23 @@ class AuthenticationRepository extends GetxController {
     final user = _auth.currentUser;
 
     if (user != null) {
+      //If the user is logged in
+
       if (user.emailVerified) {
+        //Intilaize User Specific Storages
+        await TLocalStorage.init(user.uid);
+
+        //If the user's email is verified,navigate to the main navigation menu
         Get.offAll(() => const NavigationMenu());
       } else {
+        //If the user's email i snot verified,navigate to the verifyemail screen
         Get.offAll(() => VerifyEmailScreen(email: _auth.currentUser?.email));
       }
     } else {
+      //Local storage
       devicestorage.writeIfNull('IsFirstTime', true);
+
+      //Check if its the first time launching the app
       devicestorage.read('IsFirstTime') != true
           ? Get.offAll(() => const LoginScreen())
           : Get.offAll(() => const OnBoardingScreen());

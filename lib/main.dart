@@ -9,14 +9,22 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
 Future<void> main() async {
+  //Widgets Binding
   final WidgetsBinding widgetsBinding =
       WidgetsFlutterBinding.ensureInitialized();
+
+  //--GetX Local storage
   await GetStorage.init();
+
+  //Await Splash until other items load
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+
+  //--Intialize firebase and authentication repository
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform)
       .then(
     (FirebaseApp value) => Get.put(AuthenticationRepository()),
   );
 
+//Load all the Material design/themes/localizations/bindings
   runApp(const MyApp());
 }

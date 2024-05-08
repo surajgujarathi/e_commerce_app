@@ -1,11 +1,18 @@
+import 'package:e_commerce_app/common/shimmer/vertical_product_shimmer.dart';
 import 'package:e_commerce_app/common/widgets/appbar/appbar.dart';
 import 'package:e_commerce_app/common/widgets/icons/t_circular_icon.dart';
 import 'package:e_commerce_app/common/widgets/layouts/grid_layout.dart';
+import 'package:e_commerce_app/common/widgets/loaders/animation_loader.dart';
 import 'package:e_commerce_app/common/widgets/product_cards/product_card_vertical.dart';
+import 'package:e_commerce_app/features/controllers/product/favourites_controller.dart';
 import 'package:e_commerce_app/features/controllers/product/product_controller.dart';
 import 'package:e_commerce_app/features/screens/home/widgets/home.dart';
+import 'package:e_commerce_app/features/shop/models/product_model.dart';
+import 'package:e_commerce_app/navigation_menu.dart';
 import 'package:e_commerce_app/utils/theme/constants/colors.dart';
+import 'package:e_commerce_app/utils/theme/constants/image_strings.dart';
 import 'package:e_commerce_app/utils/theme/constants/sizes.dart';
+import 'package:e_commerce_app/utils/theme/helpers/cloud_helper_functions.dart';
 import 'package:e_commerce_app/utils/theme/helpers/helpers_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -16,8 +23,10 @@ class FavouriteScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(ProductController());
+    final controller = FavouritesController.instance;
+
     return Scaffold(
+      //custom Appbar
       appBar: TAppBar(
         title:
             Text('Wishlist', style: Theme.of(context).textTheme.headlineMedium),
@@ -33,15 +42,40 @@ class FavouriteScreen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(Tsized.defaultSpace),
-        child: Column(
-          children: [
-            TGridLayout(
-              itemCount: controller.featuredProducts.length,
-              itemBuilder: (_, index) => TProductCardVertical(
-                product: controller.featuredProducts[index],
-              ),
-            ),
-          ],
+
+        //product grid
+        child: Obx(
+          () => FutureBuilder(
+            future: controller.favouriteProducts(),
+            builder: (context, snapshot) {
+              //Nothing Found widget
+              final emptywidget = TAnimationLoaderWidget(
+                text: 'oops! whishlist is empty',
+                animation: TImages.lottie,
+                showAction: true,
+                actionText: 'Lets\'s add some',
+                onActionPressed: () => Get.off(() => NavigationMenu()),
+              );
+
+              const loader = TVerticalProductShimmer(
+                itemCount: 6,
+              );
+              final widget = TCloudHelperFunctions.checkMultiRecordState(
+                  snapshot: snapshot,
+                  loader: loader,
+                  nothingFound: emptywidget);
+              if (widget != null) {
+                return widget;
+              }
+              final products = snapshot.data!;
+              return TGridLayout(
+                itemCount: products.length,
+                itemBuilder: (_, index) => TProductCardVertical(
+                  product: products[index],
+                ),
+              );
+            },
+          ),
         ),
       ),
     );

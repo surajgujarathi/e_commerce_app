@@ -1,4 +1,5 @@
 import 'package:e_commerce_app/common/widgets/custom_shapes/containers/rounded_container.dart';
+import 'package:e_commerce_app/common/widgets/favourite_icon/favourite_icon.dart';
 import 'package:e_commerce_app/common/widgets/images/t_rounded_image.dart';
 import 'package:e_commerce_app/common/widgets/texts/product_price_text.dart';
 import 'package:e_commerce_app/common/widgets/texts/product_title_text.dart';
@@ -55,14 +56,14 @@ class TProductCardHorizontal extends StatelessWidget {
                     ),
                   ),
                 ),
-                const Positioned(
-                  top: 0,
-                  right: 0,
-                  child: TCircularIcon(
-                    icon: Iconsax.heart,
-                    color: Colors.red,
-                  ),
-                )
+                //Favourite icon button
+
+                Positioned(
+                    top: 0,
+                    right: 0,
+                    child: TFavouriteIcon(
+                      productId: '',
+                    ))
               ],
             ),
           ),
