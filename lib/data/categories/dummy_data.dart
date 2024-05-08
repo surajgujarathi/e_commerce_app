@@ -280,8 +280,8 @@ class TDummyData {
         description: 'Green Nike sports Shoe',
         brand: BrandModel(
             id: '1',
-            image: TImages.adidasshoe,
-            name: 'Adidas',
+            image: TImages.clothes,
+            name: 'Nike',
             productsCount: 265,
             isFeatured: true),
         images: [
@@ -316,7 +316,7 @@ class TDummyData {
 //3rd
     ProductModel(
         id: '003',
-        title: 'Green Nike Sports Shoe',
+        title: 'Blue Nike Sports Shoe',
         stock: 15,
         price: 800,
         isFeatured: true,
@@ -324,8 +324,8 @@ class TDummyData {
         description: 'Green Nike sports Shoe',
         brand: BrandModel(
             id: '1',
-            image: TImages.zarashoe,
-            name: 'Nike',
+            image: TImages.nike1,
+            name: 'Puma',
             productsCount: 265,
             isFeatured: true),
         images: [TImages.jacket, TImages.shoe, TImages.google],

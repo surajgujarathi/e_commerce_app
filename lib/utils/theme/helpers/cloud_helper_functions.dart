@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/common/shimmer/vertical_product_shimmer.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -25,11 +26,12 @@ class TCloudHelperFunctions {
     return null;
   }
 
-  static Widget? checkMultiRecordState<T>(
-      {required AsyncSnapshot<List<T>> snapshot,
-      Widget? loader,
-      Widget? error,
-      Widget? nothingFound}) {
+  static Widget? checkMultiRecordState<T>({
+    required AsyncSnapshot<List<T>> snapshot,
+    Widget? loader,
+    Widget? error,
+    Widget? nothingFound,
+  }) {
     if (snapshot.connectionState == ConnectionState.waiting) {
       if (loader != null) return loader;
       return const Center(
