@@ -6,7 +6,6 @@ import 'package:e_commerce_app/features/shop/models/brandmodel.dart';
 import 'package:e_commerce_app/utils/theme/constants/sizes.dart';
 import 'package:e_commerce_app/utils/theme/helpers/cloud_helper_functions.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 import '../sortable/sortable_products.dart';
 

@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'shimmer.dart';
 
 class TListTileShimmer extends StatelessWidget {
-  TListTileShimmer({super.key});
+  const TListTileShimmer({super.key});
 
   @override
   Widget build(BuildContext context) {

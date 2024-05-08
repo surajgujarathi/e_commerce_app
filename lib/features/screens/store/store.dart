@@ -16,7 +16,6 @@ import 'package:e_commerce_app/utils/theme/constants/sizes.dart';
 import 'package:e_commerce_app/utils/theme/helpers/helpers_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
 
 class Store extends StatelessWidget {
   const Store({super.key});
@@ -86,7 +85,7 @@ class Store extends StatelessWidget {
                           if (brandController.featuredBrands.isEmpty) {
                             return Center(
                               child: Text(
-                                'No Data Found!',
+                                'No Data Found',
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodyMedium!

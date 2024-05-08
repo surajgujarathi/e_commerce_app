@@ -3,7 +3,6 @@ import 'package:e_commerce_app/data/repositories.authentication/product_reposito
 import 'package:e_commerce_app/features/banners/banner_repository.dart';
 import 'package:e_commerce_app/features/screens/brand/brand_repositories.dart';
 import 'package:e_commerce_app/utils/theme/constants/sizes.dart';
-import 'package:e_commerce_app/utils/theme/logging/logger.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

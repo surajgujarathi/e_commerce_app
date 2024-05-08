@@ -22,7 +22,7 @@ class CategoryBrands extends StatelessWidget {
       builder: (context, snapshot) {
         //Handle Loader ,No record,or errro message
 
-        final loader = Column(
+        const loader = Column(
           children: [
             TListTileShimmer(),
             SizedBox(height: Tsized.spaceBtwItems),
@@ -39,7 +39,7 @@ class CategoryBrands extends StatelessWidget {
 
         return ListView.builder(
             shrinkWrap: true,
-            physics: NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             itemCount: brands.length,
             itemBuilder: (_, index) {
               final brand = brands[index];

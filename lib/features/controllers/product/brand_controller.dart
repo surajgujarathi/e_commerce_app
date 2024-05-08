@@ -4,7 +4,6 @@ import 'package:e_commerce_app/features/shop/models/brandmodel.dart';
 import 'package:e_commerce_app/features/shop/models/product_model.dart';
 import 'package:e_commerce_app/loaders.dart';
 import 'package:get/get.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
 
 class BrandController extends GetxController {
   static BrandController get instance => Get.find();

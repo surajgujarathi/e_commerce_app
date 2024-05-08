@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:e_commerce_app/utils/theme/logging/logger.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';

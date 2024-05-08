@@ -4,7 +4,6 @@ import 'package:e_commerce_app/common/widgets/texts/section_heading.dart';
 import 'package:e_commerce_app/data/repositories.authentication/authentication_repository.dart';
 import 'package:e_commerce_app/features/screens/address/address.dart';
 import 'package:e_commerce_app/features/screens/list_tiles/setting_menu_tiles.dart';
-import 'package:e_commerce_app/features/screens/login/widgets/login.dart';
 import 'package:e_commerce_app/features/screens/order/order.dart';
 import 'package:e_commerce_app/features/screens/settings/load_data_screen.dart';
 import 'package:e_commerce_app/features/screens/settings/t_user_profile.dart';

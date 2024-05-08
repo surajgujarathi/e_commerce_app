@@ -1,7 +1,6 @@
 import 'package:e_commerce_app/features/controllers/product/images_controller.dart';
 import 'package:e_commerce_app/features/shop/models/product_model.dart';
 import 'package:e_commerce_app/features/shop/models/product_variation.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class VariationController extends GetxController {

@@ -6,7 +6,6 @@ import 'package:e_commerce_app/utils/theme/exceptions/format_exception.dart';
 import 'package:e_commerce_app/utils/theme/exceptions/platform_exception.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 
 import '../../../utils/theme/exceptions/firebase_execeptions.dart';
 
@@ -30,7 +29,7 @@ class BrandRepository extends GetxController {
     } on PlatformException catch (e) {
       throw TPlatformExceptions(e.code).message;
     } catch (e) {
-      throw 'Something went wrong while fetching Banners.';
+      throw 'Something went wrong while fetching brands.';
     }
   }
 
@@ -67,7 +66,7 @@ class BrandRepository extends GetxController {
     } on PlatformException catch (e) {
       throw TPlatformExceptions(e.code).message;
     } catch (e) {
-      throw 'Something went wrong while fetching Banners.';
+      throw 'Something went wrong while fetching brands.';
     }
   }
   //upload brands data to the firebase

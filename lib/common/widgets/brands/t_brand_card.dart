@@ -3,10 +3,8 @@ import 'package:e_commerce_app/common/widgets/texts/t_brand__verified_icon.dart'
 import 'package:e_commerce_app/features/shop/models/brandmodel.dart';
 import 'package:e_commerce_app/utils/theme/constants/enums.dart';
 import 'package:e_commerce_app/utils/theme/constants/sizes.dart';
-import 'package:e_commerce_app/utils/theme/helpers/helpers_functions.dart';
 import 'package:flutter/material.dart';
 
-import '../../../utils/theme/constants/colors.dart';
 import '../custom_shapes/containers/rounded_container.dart';
 
 class TBrandCard extends StatelessWidget {

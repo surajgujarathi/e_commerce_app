@@ -65,6 +65,50 @@ class ProductRepository extends GetxController {
     }
   }
 
+  // Get Products for Category
+  Future<List<ProductModel>> getProductsForCategory(
+      {required String categoryId, int limit = 4}) async {
+    try {
+      // Query to get all documents where productId matches the provided categoryId & Fetch limited or unlimited based on limit
+
+      QuerySnapshot productCategoryQuery = limit == -1
+          ? await _db
+              .collection('ProductCategory')
+              .where('CategoryId', isEqualTo: categoryId)
+              .get()
+          : await _db
+              .collection('ProductCategory')
+              .where('CategoryId', isEqualTo: categoryId)
+              .limit(limit)
+              .get();
+
+      // Extract productIds from the documents
+      List<String> productIds = productCategoryQuery.docs
+          .map((doc) => doc['productId'] as String)
+          .toList();
+
+      // Query to get all documents where the brandId is in the list of brandIds, FieldPath.documentId to query documents in Collection
+
+      final productsQuery = await _db
+          .collection('Products')
+          .where(FieldPath.documentId, whereIn: productIds)
+          .get();
+// Extract brand names or other relevant data from the documents
+
+      List<ProductModel> products = productsQuery.docs
+          .map((doc) => ProductModel.fromSnapshot(doc))
+          .toList();
+
+      return products;
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on PlatformException catch (e) {
+      throw TPlatformExceptions(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again';
+    }
+  }
+
   //Get limited featured products
 
   Future<List<ProductModel>> getAllFeaturedProducts() async {
@@ -184,7 +228,7 @@ class ProductRepository extends GetxController {
     } on PlatformException catch (e) {
       throw e.message!;
     } catch (e) {
-      TLoggerHelper.error("message ${e}");
+      TLoggerHelper.error("message $e");
       throw e.toString();
     }
   }

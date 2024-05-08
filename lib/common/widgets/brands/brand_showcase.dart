@@ -1,3 +1,5 @@
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:e_commerce_app/common/shimmer/shimmer.dart';
 import 'package:e_commerce_app/common/widgets/brands/t_brand_card.dart';
 import 'package:e_commerce_app/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:e_commerce_app/features/screens/brand/brand_products.dart';
@@ -7,7 +9,6 @@ import 'package:e_commerce_app/utils/theme/constants/sizes.dart';
 import 'package:e_commerce_app/utils/theme/helpers/helpers_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 class TbrandShowcase extends StatelessWidget {
   const TbrandShowcase({
@@ -37,6 +38,7 @@ class TbrandShowcase extends StatelessWidget {
             const SizedBox(
               height: Tsized.spaceBtwItems,
             ),
+            //brand top3 product images
             Row(
                 children: images
                     .map((image) => brandTopProductImageWidget(image, context))
@@ -50,17 +52,19 @@ class TbrandShowcase extends StatelessWidget {
   Widget brandTopProductImageWidget(String image, context) {
     return Expanded(
       child: TRoundedContainer(
-        height: 100,
-        backgroundColor: THelperFunctions.isDarkmode(context)
-            ? TColors.darkerGrey
-            : TColors.light,
-        margin: const EdgeInsets.only(right: Tsized.sm),
-        padding: const EdgeInsets.all(Tsized.md),
-        child: Image(
-          fit: BoxFit.contain,
-          image: AssetImage(image),
-        ),
-      ),
+          height: 100,
+          backgroundColor: THelperFunctions.isDarkmode(context)
+              ? TColors.darkerGrey
+              : TColors.light,
+          margin: const EdgeInsets.only(right: Tsized.sm),
+          padding: const EdgeInsets.all(Tsized.md),
+          child: CachedNetworkImage(
+            imageUrl: image,
+            fit: BoxFit.contain,
+            progressIndicatorBuilder: (context, url, downloadprogress) =>
+                const TShimmerEffect(width: 100, height: 100),
+            errorWidget: (context, url, error) => const Icon(Icons.error),
+          )),
     );
   }
 }

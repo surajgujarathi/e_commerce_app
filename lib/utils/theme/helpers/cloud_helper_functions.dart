@@ -1,8 +1,6 @@
-import 'package:e_commerce_app/common/shimmer/vertical_product_shimmer.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 
 class TCloudHelperFunctions {
   //helper function to check the state of a single database record

@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:e_commerce_app/common/shimmer/shimmer.dart';
 import 'package:e_commerce_app/common/widgets/custom_shapes/containers/primary_header_container.dart';
 import 'package:e_commerce_app/common/widgets/custom_shapes/containers/searchcontainer.dart';
@@ -10,7 +9,6 @@ import 'package:e_commerce_app/features/screens/home/widgets/home_appbar.dart';
 import 'package:e_commerce_app/features/screens/home/widgets/home_categories.dart';
 import 'package:e_commerce_app/features/screens/home/widgets/promosliders.dart';
 import 'package:e_commerce_app/utils/theme/constants/sizes.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

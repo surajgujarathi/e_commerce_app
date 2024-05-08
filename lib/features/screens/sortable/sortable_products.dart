@@ -4,15 +4,14 @@ import 'package:e_commerce_app/features/controllers/product/all_product_controll
 import 'package:e_commerce_app/utils/theme/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
 
 import '../../shop/models/product_model.dart';
 
 class TSortableProducts extends StatelessWidget {
   const TSortableProducts({
-    Key? key,
+    super.key,
     required this.products,
-  }) : super(key: key);
+  });
 
   final List<ProductModel> products;
 

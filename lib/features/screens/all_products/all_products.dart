@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:e_commerce_app/common/shimmer/shimmer.dart';
 import 'package:e_commerce_app/common/shimmer/vertical_product_shimmer.dart';
 import 'package:e_commerce_app/common/widgets/appbar/appbar.dart';
 import 'package:e_commerce_app/features/screens/sortable/sortable_products.dart';

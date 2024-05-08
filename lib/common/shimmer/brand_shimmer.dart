@@ -13,6 +13,6 @@ class TBrandsShimmer extends StatelessWidget {
     return TGridLayout(
         mainAxisExtent: 80,
         itemCount: itemCount,
-        itemBuilder: (_, __) => TShimmerEffect(width: 300, height: 80));
+        itemBuilder: (_, __) => const TShimmerEffect(width: 300, height: 80));
   }
 }
