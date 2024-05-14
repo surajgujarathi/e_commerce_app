@@ -59,7 +59,7 @@ class TsingleAddress extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Suraj Gujarathi',
+                    address.name,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: Theme.of(context).textTheme.titleLarge,
@@ -67,16 +67,16 @@ class TsingleAddress extends StatelessWidget {
                   const SizedBox(
                     height: Tsized.sm / 2,
                   ),
-                  const Text(
-                    '(+123) 456 7890',
+                  Text(
+                    address.formattedPhoneNo,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
                   const SizedBox(
                     height: Tsized.sm / 2,
                   ),
-                  const Text(
-                    '82356 Suraj gujarathi,South lane,87566,USA',
+                  Text(
+                    address.toString(),
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     softWrap: true,

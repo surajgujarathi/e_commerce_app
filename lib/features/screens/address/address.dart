@@ -18,7 +18,9 @@ class UserAddressScreen extends StatelessWidget {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () => Get.to(() => const AddNewAdressScreen()),
-        child: const Icon(Iconsax.add, color: TColors.white),
+        child: const Icon(
+          Iconsax.add,
+        ),
       ),
       appBar: TAppBar(
         showBackArrow: true,
@@ -29,25 +31,30 @@ class UserAddressScreen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(Tsized.defaultSpace),
-          child: FutureBuilder(
-              future: controller.getallUserAddress(),
-              builder: (context, snapshot) {
-                //Helper  Function:Handle laoder,No record ,Or Error Message
-                final response = TCloudHelperFunctions.checkMultiRecordState(
-                    snapshot: snapshot);
-                if (response != null) return response;
-                final addresses = snapshot.data!;
+          padding: EdgeInsets.all(Tsized.defaultSpace),
+          child: Obx(
+            () => FutureBuilder(
 
-                return ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: addresses.length,
-                  itemBuilder: (_, index) => TsingleAddress(
-                    address: addresses[index],
-                    onTap: () => controller.selectedAddress(addresses[index]),
-                  ),
-                );
-              }),
+                //use key to trigger refresh
+                key: Key(controller.refreshData.value.toString()),
+                future: controller.getallUserAddress(),
+                builder: (context, snapshot) {
+                  //Helper  Function:Handle laoder,No record ,Or Error Message
+                  final response = TCloudHelperFunctions.checkMultiRecordState(
+                      snapshot: snapshot);
+                  if (response != null) return response;
+                  final addresses = snapshot.data!;
+
+                  return ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: addresses.length,
+                    itemBuilder: (_, index) => TsingleAddress(
+                      address: addresses[index],
+                      onTap: () => controller.selectedAddress(addresses[index]),
+                    ),
+                  );
+                }),
+          ),
         ),
       ),
     );
