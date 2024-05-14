@@ -36,9 +36,9 @@ class Store extends StatelessWidget {
             ),
             actions: [
               TCartCounterIcon(
-                onPressed: () {},
-                // iconColor: Colors.black,
-              )
+
+                  // iconColor: Colors.black,
+                  )
             ],
           ),
           body: NestedScrollView(

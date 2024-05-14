@@ -2,7 +2,6 @@ import 'package:e_commerce_app/common/widgets/appbar/appbar.dart';
 import 'package:e_commerce_app/features/controllers/address_controller.dart';
 import 'package:e_commerce_app/features/screens/address/add_new_screen.dart';
 import 'package:e_commerce_app/features/screens/address/widgets/single_adresses.dart';
-import 'package:e_commerce_app/utils/theme/constants/colors.dart';
 import 'package:e_commerce_app/utils/theme/constants/sizes.dart';
 import 'package:e_commerce_app/utils/theme/helpers/cloud_helper_functions.dart';
 import 'package:flutter/material.dart';

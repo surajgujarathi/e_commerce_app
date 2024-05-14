@@ -2,6 +2,7 @@ import 'package:e_commerce_app/common/styles/shadows.dart';
 import 'package:e_commerce_app/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:e_commerce_app/common/widgets/favourite_icon/favourite_icon.dart';
 import 'package:e_commerce_app/common/widgets/images/t_rounded_image.dart';
+import 'package:e_commerce_app/common/widgets/products.cart/add_to_cart_button.dart';
 import 'package:e_commerce_app/common/widgets/texts/product_price_text.dart';
 import 'package:e_commerce_app/common/widgets/texts/product_title_text.dart';
 import 'package:e_commerce_app/common/widgets/texts/t_brand__verified_icon.dart';
@@ -129,23 +130,8 @@ class TProductCardVertical extends StatelessWidget {
                 ),
 
                 //add to cart button
-                Container(
-                  decoration: const BoxDecoration(
-                      color: TColors.dark,
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(Tsized.cardRadiusMd),
-                          bottomLeft:
-                              Radius.circular(Tsized.productImageRadius))),
-                  child: const SizedBox(
-                    width: Tsized.iconLg * 1.2,
-                    height: Tsized.iconLg * 1.2,
-                    child: Center(
-                      child: Icon(
-                        Iconsax.add,
-                        color: TColors.white,
-                      ),
-                    ),
-                  ),
+                ProductCartAddToCartButton(
+                  product: product,
                 )
               ],
             )
