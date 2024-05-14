@@ -16,7 +16,7 @@ class ProductModel {
   bool? isFeatured;
   BrandModel? brand;
   String? description;
-  String? categoryId;
+  String? CategoryId;
   List<String>? images;
   String productType;
   List<ProductAttributeModel>? productAttributes;
@@ -35,7 +35,7 @@ class ProductModel {
     this.images,
     this.salePrice = 0.0,
     this.isFeatured,
-    this.categoryId,
+    this.CategoryId,
     this.description,
     this.productAttributes,
     this.productVariations,
@@ -55,7 +55,7 @@ class ProductModel {
       'Thumbnail': thumbnail,
       'SalePrice': salePrice,
       'IsFeatured': isFeatured,
-      'CategoryId': categoryId,
+      'CategoryId': CategoryId,
       'Brand': brand!.toJson(),
       'Description': description,
       'ProductType': productType,
@@ -83,7 +83,7 @@ class ProductModel {
       price: double.parse((data['Price'] ?? 0.0).toString()),
       salePrice: double.parse((data['SalePrice'] ?? 0.0).toString()),
       thumbnail: data['Thumbnail'] ?? '',
-      categoryId: data['CategoryId'] ?? '',
+      CategoryId: data['CategoryId'] ?? '',
       description: data['Description'] ?? '',
       productType: data['ProductType'] ?? '',
       brand: BrandModel.fromJson(data['Brand']),
@@ -109,7 +109,7 @@ class ProductModel {
       price: double.parse((data['Price'] ?? 0.0).toString()),
       salePrice: double.parse((data['SalePrice'] ?? 0.0).toString()),
       thumbnail: data['Thumbnail'] ?? '',
-      categoryId: data['CategoryId'] ?? '',
+      CategoryId: data['CategoryId'] ?? '',
       description: data['Description'] ?? '',
       productType: data['ProductType'] ??
           '', // Corrected 'ProductionType' to 'ProductType'

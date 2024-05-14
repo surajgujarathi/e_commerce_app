@@ -53,7 +53,7 @@ class Tcategorytab extends StatelessWidget {
                           onPressed: () => Get.to(Allproducts(
                             title: category.name,
                             futureMethod: controller.getCategoryProducts(
-                                categoryId: category.id, limit: -1),
+                                categoryId: category.id),
                           )),
                         ),
 

@@ -40,7 +40,9 @@ class THomeCategories extends StatelessWidget {
             return TVerticalImageText(
                 image: category.image,
                 title: category.name,
-                ontap: () => Get.to(() => const SubCategoriesScreen()));
+                ontap: () => Get.to(() => SubCategoriesScreen(
+                      category: category,
+                    )));
           },
         ),
       );

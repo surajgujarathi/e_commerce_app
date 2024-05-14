@@ -1,14 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:e_commerce_app/common/widgets/appbar/appbar.dart';
 import 'package:e_commerce_app/common/widgets/favourite_icon/favourite_icon.dart';
-import 'package:e_commerce_app/common/widgets/icons/t_circular_icon.dart';
 import 'package:e_commerce_app/common/widgets/images/t_rounded_image.dart';
 import 'package:e_commerce_app/features/controllers/product/images_controller.dart';
 import 'package:e_commerce_app/features/shop/models/product_model.dart';
 import 'package:e_commerce_app/utils/theme/helpers/helpers_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../../common/widgets/custom_shapes/curved_edges/curved_edges_widget.dart';
 import '../../../utils/theme/constants/colors.dart';

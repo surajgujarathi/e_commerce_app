@@ -32,10 +32,8 @@ class CategoryController extends GetxController {
       allCategories.assignAll(categories);
       // filter featured categories
 
-      featuredCategories.assignAll(allCategories
-          .where((category) => category.isFeatured && category.parentId.isEmpty)
-          .take(8)
-          .toList());
+      featuredCategories.assignAll(
+          allCategories.where((category) => category.isFeatured).toList());
     } catch (e) {
       TLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
     } finally {
@@ -46,13 +44,30 @@ class CategoryController extends GetxController {
   }
 
   // load selected category data
+  Future<List<CategoryModel>> getSubCategories(String categoryId) async {
+    try {
+      final subCategories =
+          await _categoryRepository.getSubCategories(categoryId);
+      return subCategories;
+    } catch (e) {
+      TLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
+      return [];
+    }
+  }
 
-  // get category or sub category products
-  Future<List<ProductModel>> getCategoryProducts(
-      {required String categoryId, int limit = 4}) async {
-//fetch limited(4)products against each subcategory
-    final products = await ProductRepository.instance
-        .getProductsForCategory(categoryId: categoryId, limit: limit);
-    return products;
+  // Get category or sub category products
+  Future<List<ProductModel>> getCategoryProducts({
+    required String categoryId,
+  }) async {
+    try {
+      //fetch limited(4)products against each subcategory
+      final products = await ProductRepository.instance.getProductsForCategory(
+        categoryId: categoryId,
+      );
+      return products;
+    } catch (e) {
+      TLoaders.errorSnackBar(title: 'OHH snap!', message: e.toString());
+      return [];
+    }
   }
 }

@@ -5,9 +5,7 @@ import 'package:e_commerce_app/common/widgets/layouts/grid_layout.dart';
 import 'package:e_commerce_app/common/widgets/loaders/animation_loader.dart';
 import 'package:e_commerce_app/common/widgets/product_cards/product_card_vertical.dart';
 import 'package:e_commerce_app/features/controllers/product/favourites_controller.dart';
-import 'package:e_commerce_app/features/controllers/product/product_controller.dart';
 import 'package:e_commerce_app/features/screens/home/widgets/home.dart';
-import 'package:e_commerce_app/features/shop/models/product_model.dart';
 import 'package:e_commerce_app/navigation_menu.dart';
 import 'package:e_commerce_app/utils/theme/constants/colors.dart';
 import 'package:e_commerce_app/utils/theme/constants/image_strings.dart';
@@ -54,7 +52,7 @@ class FavouriteScreen extends StatelessWidget {
                 animation: TImages.lottie,
                 showAction: true,
                 actionText: 'Lets\'s add some',
-                onActionPressed: () => Get.off(() => NavigationMenu()),
+                onActionPressed: () => Get.off(() => const NavigationMenu()),
               );
 
               const loader = TVerticalProductShimmer(

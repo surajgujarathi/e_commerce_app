@@ -1,4 +1,5 @@
 import 'package:e_commerce_app/features/banners/models/banner_model.dart';
+import 'package:e_commerce_app/features/shop/models/brand_category_model.dart';
 import 'package:e_commerce_app/features/shop/models/brandmodel.dart';
 import 'package:e_commerce_app/features/shop/models/category_model.dart';
 import 'package:e_commerce_app/features/shop/models/product_attributes.dart';
@@ -18,6 +19,8 @@ class TDummyData {
     BannerModel(
         imageUrl: TImages.zara, targetScreen: TRoutes.favourites, active: true),
   ];
+
+  static List<BrandCategoryModel> brandCategory = [];
 
   // List of all brands
   static final List<BrandModel> brands = [
@@ -119,7 +122,6 @@ class TDummyData {
   //   ),
   // ];
 
-  //Baneers
   static List<CategoryModel> categories = [
     CategoryModel(
         id: '1', name: 'Sports', image: TImages.sports, isFeatured: true),
@@ -146,19 +148,19 @@ class TDummyData {
         id: '8',
         name: 'Sport Shoes',
         image: TImages.sneakers,
-        isFeatured: false,
+        isFeatured: true,
         parentId: '1'),
     CategoryModel(
         id: '9',
         name: 'Track Suites',
         image: TImages.jacket,
-        isFeatured: false,
+        isFeatured: true,
         parentId: '1'),
     CategoryModel(
         id: '10',
         name: 'Sports Equipments',
         image: TImages.sneakers,
-        isFeatured: false,
+        isFeatured: true,
         parentId: '1'),
 
     //furniture
@@ -166,19 +168,19 @@ class TDummyData {
         id: '11',
         name: 'Office furniture',
         image: TImages.furniture,
-        isFeatured: false,
+        isFeatured: true,
         parentId: '5'),
     CategoryModel(
         id: '12',
         name: 'Kitchen furniture',
         image: TImages.furniture,
-        isFeatured: false,
+        isFeatured: true,
         parentId: '5'),
     CategoryModel(
         id: '13',
         name: 'Bedroom furniture',
         image: TImages.furniture,
-        isFeatured: false,
+        isFeatured: true,
         parentId: '5'),
 
     //electronics
@@ -187,20 +189,20 @@ class TDummyData {
         id: '14',
         name: 'Laptop',
         image: TImages.electronics,
-        isFeatured: false,
+        isFeatured: true,
         parentId: '2'),
     CategoryModel(
         id: '12',
         name: 'Mobile',
         image: TImages.electronics,
-        isFeatured: false,
+        isFeatured: true,
         parentId: '2'),
 
     CategoryModel(
         id: '16',
         name: 'shirts',
         image: TImages.jacket,
-        isFeatured: false,
+        isFeatured: true,
         parentId: '3'),
   ];
 
@@ -228,7 +230,7 @@ class TDummyData {
         // ],
         salePrice: 400,
         sku: 'ABR4568',
-        categoryId: '1',
+        CategoryId: '1',
         productAttributes: [
           ProductAttributeModel(
               name: 'Color', values: ['Blue', 'Pink', 'Green']),
@@ -279,7 +281,7 @@ class TDummyData {
         thumbnail: TImages.jacket,
         description: 'Green Nike sports Shoe',
         brand: BrandModel(
-            id: '1',
+            id: '2',
             image: TImages.clothes,
             name: 'Nike',
             productsCount: 265,
@@ -293,7 +295,7 @@ class TDummyData {
         ],
         salePrice: 55,
         sku: 'ABR4568',
-        categoryId: '1',
+        CategoryId: '1',
         productAttributes: [
           ProductAttributeModel(
               name: 'Color', values: ['Green', 'Black', 'Red']),
@@ -323,7 +325,7 @@ class TDummyData {
         thumbnail: TImages.shoe,
         description: 'Green Nike sports Shoe',
         brand: BrandModel(
-            id: '1',
+            id: '3',
             image: TImages.nike1,
             name: 'Puma',
             productsCount: 265,
@@ -331,7 +333,7 @@ class TDummyData {
         images: [TImages.jacket, TImages.shoe, TImages.google],
         salePrice: 650,
         sku: 'ABR4568',
-        categoryId: '1',
+        CategoryId: '1',
         productAttributes: [
           ProductAttributeModel(
               name: 'Color', values: ['Green', 'Black', 'Red']),
@@ -367,12 +369,12 @@ class TDummyData {
         stock: 15,
         price: 1500,
         isFeatured: true,
-        thumbnail: TImages.sports,
+        thumbnail: TImages.shoe,
         description: 'Green Nike sports Shoe',
         brand: BrandModel(
-            id: '1',
+            id: '4',
             image: TImages.nike1,
-            name: 'Ball',
+            name: 'Shoe',
             productsCount: 265,
             isFeatured: true),
         images: [
@@ -384,7 +386,141 @@ class TDummyData {
         ],
         salePrice: 1200,
         sku: 'ABR4568',
-        categoryId: '1',
+        CategoryId: '1',
+        productAttributes: [
+          ProductAttributeModel(
+              name: 'Color', values: ['Green', 'Black', 'Red']),
+          ProductAttributeModel(
+              name: 'Size', values: ['EU 30', 'EU 32', 'EU34']),
+        ],
+        // productVariations: [
+        //   ProductVariationModel(
+        //       id: '1',
+        //       stock: 34,
+        //       price: 134,
+        //       salePrice: 800.8,
+        //       image: TImages.sneakers,
+        //       description:
+        //           'This is a product description for Green Nike Sport Shoe',
+        //       attributeValues: {'Color': 'Green', 'Size': 'EU 34'}),
+        // ],
+        productType: 'ProductType.single'),
+
+    //5th
+    ProductModel(
+        id: '005',
+        title: 'Electronics',
+        stock: 15,
+        price: 1500,
+        isFeatured: true,
+        thumbnail: TImages.electronics,
+        description: 'Electronics Items',
+        brand: BrandModel(
+            id: '5',
+            image: TImages.electronics,
+            name: 'Electronics',
+            productsCount: 265,
+            isFeatured: true),
+        images: [
+          TImages.jacket,
+          TImages.shoe,
+          TImages.google,
+          TImages.electronics,
+          TImages.jewelery
+        ],
+        salePrice: 1200,
+        sku: 'ABR4568',
+        CategoryId: '1',
+        productAttributes: [
+          ProductAttributeModel(
+              name: 'Color', values: ['Green', 'Black', 'Red']),
+          ProductAttributeModel(
+              name: 'Size', values: ['EU 30', 'EU 32', 'EU34']),
+        ],
+        // productVariations: [
+        //   ProductVariationModel(
+        //       id: '1',
+        //       stock: 34,
+        //       price: 134,
+        //       salePrice: 800.8,
+        //       image: TImages.sneakers,
+        //       description:
+        //           'This is a product description for Green Nike Sport Shoe',
+        //       attributeValues: {'Color': 'Green', 'Size': 'EU 34'}),
+        // ],
+        productType: 'ProductType.single'),
+
+    //6th
+
+    ProductModel(
+        id: '006',
+        title: 'Furniture Items',
+        stock: 15,
+        price: 1500,
+        isFeatured: true,
+        thumbnail: TImages.furniture,
+        description: 'Furniture Items',
+        brand: BrandModel(
+            id: '6',
+            image: TImages.furniture,
+            name: 'Furniture',
+            productsCount: 265,
+            isFeatured: true),
+        images: [
+          TImages.jacket,
+          TImages.shoe,
+          TImages.google,
+          TImages.electronics,
+          TImages.jewelery
+        ],
+        salePrice: 1200,
+        sku: 'ABR4568',
+        CategoryId: '1',
+        productAttributes: [
+          ProductAttributeModel(
+              name: 'Color', values: ['Green', 'Black', 'Red']),
+          ProductAttributeModel(
+              name: 'Size', values: ['EU 30', 'EU 32', 'EU34']),
+        ],
+        // productVariations: [
+        //   ProductVariationModel(
+        //       id: '1',
+        //       stock: 34,
+        //       price: 134,
+        //       salePrice: 800.8,
+        //       image: TImages.sneakers,
+        //       description:
+        //           'This is a product description for Green Nike Sport Shoe',
+        //       attributeValues: {'Color': 'Green', 'Size': 'EU 34'}),
+        // ],
+        productType: 'ProductType.single'),
+
+    //7th
+
+    ProductModel(
+        id: '007',
+        title: 'Jewellery',
+        stock: 15,
+        price: 1500,
+        isFeatured: true,
+        thumbnail: TImages.jewelery,
+        description: 'Green Nike sports Shoe',
+        brand: BrandModel(
+            id: '7',
+            image: TImages.jewelery,
+            name: 'Jewellery',
+            productsCount: 265,
+            isFeatured: true),
+        images: [
+          TImages.jacket,
+          TImages.shoe,
+          TImages.google,
+          TImages.electronics,
+          TImages.jewelery
+        ],
+        salePrice: 1200,
+        sku: 'ABR4568',
+        CategoryId: '1',
         productAttributes: [
           ProductAttributeModel(
               name: 'Color', values: ['Green', 'Black', 'Red']),

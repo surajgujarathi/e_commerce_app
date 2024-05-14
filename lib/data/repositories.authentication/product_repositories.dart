@@ -12,6 +12,7 @@ import '../../utils/theme/exceptions/firebase_execeptions.dart';
 import '../../utils/theme/exceptions/platform_exception.dart';
 
 //Repostories for managing product-related data and operations
+
 class ProductRepository extends GetxController {
   static ProductRepository get instance => Get.find();
 
@@ -24,7 +25,6 @@ class ProductRepository extends GetxController {
       final snapshot = await _db
           .collection('Products')
           .where('IsFeatured', isEqualTo: true)
-          .limit(4)
           .get();
       return snapshot.docs.map((e) => ProductModel.fromSnapshot(e)).toList();
     } on FirebaseException catch (e) {
@@ -66,21 +66,16 @@ class ProductRepository extends GetxController {
   }
 
   // Get Products for Category
-  Future<List<ProductModel>> getProductsForCategory(
-      {required String categoryId, int limit = 4}) async {
+  Future<List<ProductModel>> getProductsForCategory({
+    required String categoryId,
+  }) async {
     try {
       // Query to get all documents where productId matches the provided categoryId & Fetch limited or unlimited based on limit
 
-      QuerySnapshot productCategoryQuery = limit == -1
-          ? await _db
-              .collection('ProductCategory')
-              .where('CategoryId', isEqualTo: categoryId)
-              .get()
-          : await _db
-              .collection('ProductCategory')
-              .where('CategoryId', isEqualTo: categoryId)
-              .limit(limit)
-              .get();
+      QuerySnapshot productCategoryQuery = await _db
+          .collection('ProductCategory')
+          .where('CategoryId', isEqualTo: categoryId)
+          .get();
 
       // Extract productIds from the documents
       List<String> productIds = productCategoryQuery.docs
@@ -93,7 +88,7 @@ class ProductRepository extends GetxController {
           .collection('Products')
           .where(FieldPath.documentId, whereIn: productIds)
           .get();
-// Extract brand names or other relevant data from the documents
+      // Extract brand names or other relevant data from the documents
 
       List<ProductModel> products = productsQuery.docs
           .map((doc) => ProductModel.fromSnapshot(doc))

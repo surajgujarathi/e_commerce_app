@@ -1,7 +1,6 @@
 import 'package:e_commerce_app/common/styles/shadows.dart';
 import 'package:e_commerce_app/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:e_commerce_app/common/widgets/favourite_icon/favourite_icon.dart';
-import 'package:e_commerce_app/common/widgets/icons/t_circular_icon.dart';
 import 'package:e_commerce_app/common/widgets/images/t_rounded_image.dart';
 import 'package:e_commerce_app/common/widgets/texts/product_price_text.dart';
 import 'package:e_commerce_app/common/widgets/texts/product_title_text.dart';
@@ -21,12 +20,14 @@ import '../../../utils/theme/constants/enums.dart';
 class TProductCardVertical extends StatelessWidget {
   const TProductCardVertical({super.key, required this.product});
   final ProductModel product;
+
   @override
   Widget build(BuildContext context) {
     final controller = ProductController.instance;
     final salePercentage =
         controller.calculateSalePercentage(product.price, product.salePrice);
     final dark = THelperFunctions.isDarkmode(context);
+
     return GestureDetector(
       onTap: () => Get.to(() => ProductDetail(
             product: product,
