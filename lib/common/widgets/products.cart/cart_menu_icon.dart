@@ -4,7 +4,6 @@ import 'package:e_commerce_app/utils/theme/constants/colors.dart';
 import 'package:e_commerce_app/utils/theme/helpers/helpers_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/route_manager.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 class TCartCounterIcon extends StatelessWidget {
@@ -45,7 +44,7 @@ class TCartCounterIcon extends StatelessWidget {
                   controller.noOfCartItems.value.toString(),
                   style: Theme.of(context).textTheme.labelLarge!.apply(
                       color: counterTextColor ??
-                          (dark ? TColors.black : TColors.white),
+                          (dark ? TColors.white : TColors.black),
                       fontSizeFactor: 0.8),
                 ),
               ),

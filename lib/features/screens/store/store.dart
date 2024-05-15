@@ -34,7 +34,7 @@ class Store extends StatelessWidget {
               'Store',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
-            actions: [
+            actions: const [
               TCartCounterIcon(
 
                   // iconColor: Colors.black,

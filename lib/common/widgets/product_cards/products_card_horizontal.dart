@@ -97,7 +97,7 @@ class TProductCardHorizontal extends StatelessWidget {
                         title: product.title,
                         smallsize: true,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: Tsized.spaceBtwItems / 2,
                       ),
                       TBrandTitleWithVerifiedIcon(title: product.brand!.name)

@@ -50,7 +50,7 @@ class AddressController extends GetxController {
         },
         barrierDismissible: false,
         backgroundColor: Colors.transparent,
-        content: CircularProgressIndicator(),
+        content: const CircularProgressIndicator(),
       );
 
       //clear the 'selected' field

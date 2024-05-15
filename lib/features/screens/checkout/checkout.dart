@@ -32,6 +32,7 @@ class CheckOutScreen extends StatelessWidget {
         padding: const EdgeInsets.all(Tsized.defaultSpace),
         child: Column(
           children: [
+            //items in cart
             const TCartitems(
               showAddRemoveButton: false,
             ),

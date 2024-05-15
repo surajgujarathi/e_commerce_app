@@ -200,4 +200,22 @@ class CartController extends GetxController {
     cartItems.clear();
     updateCart();
   }
+
+//-- Inialize already added item count in the cart
+  void updateAlreadyAddedProductCount(ProductModel product) {
+    //if product has no variations then calculate cartentries and display total number
+    //else make default entries to 0 and show cartentries when variation is selected
+    if (product.productType == ProductType.single.toString()) {
+      productQuantityInCart.value = getProductQuantityInCart(product.id);
+    } else {
+      //get selected variation if any.....
+      final variationId = variationController.selectedVariation.value.id;
+      if (variationId.isNotEmpty) {
+        productQuantityInCart.value =
+            getVariationQuantityInCart(product.id, variationId);
+      } else {
+        productQuantityInCart.value = 0;
+      }
+    }
+  }
 }

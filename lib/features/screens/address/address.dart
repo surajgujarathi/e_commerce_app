@@ -30,7 +30,7 @@ class UserAddressScreen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(Tsized.defaultSpace),
+          padding: const EdgeInsets.all(Tsized.defaultSpace),
           child: Obx(
             () => FutureBuilder(
 
