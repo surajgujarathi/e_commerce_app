@@ -1,45 +1,42 @@
+import 'package:e_commerce_app/features/screens/cart/cart_controller.dart';
 import 'package:e_commerce_app/utils/theme/constants/sizes.dart';
+import 'package:e_commerce_app/utils/theme/helpers/pricing_calculator.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class TBillingAmountSections extends StatelessWidget {
   const TBillingAmountSections({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final cartController = CartController.instance;
+    final subTotal = cartController.totalCartPrice.value;
+
     return Column(
       children: [
+        //subtotal
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
-              'Subtotal',
-              style: Theme.of(context).textTheme.bodyMedium,
-            ),
-            Text(
-              '\$256.0',
-              style: Theme.of(context).textTheme.bodyMedium,
-            )
+            Text('Subtotal', style: Theme.of(context).textTheme.bodyMedium),
+            Text('\$$subTotal', style: Theme.of(context).textTheme.bodyMedium)
           ],
         ),
-        const SizedBox(
-          height: Tsized.spaceBtwItems / 2,
-        ),
+        const SizedBox(height: Tsized.spaceBtwItems / 2),
+
+        //shipping fee
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+            Text('Shiping Fee', style: Theme.of(context).textTheme.bodyMedium),
             Text(
-              'Shiping Fee',
-              style: Theme.of(context).textTheme.bodyMedium,
-            ),
-            Text(
-              '\$6.0',
-              style: Theme.of(context).textTheme.labelLarge,
-            ),
+                '\$${TPricingCalculator.calculateShippingCost(subTotal, 'US')}',
+                style: Theme.of(context).textTheme.labelLarge),
           ],
         ),
-        const SizedBox(
-          height: Tsized.spaceBtwItems / 2,
-        ),
+        const SizedBox(height: Tsized.spaceBtwItems / 2),
+
+        //taxfee
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -48,14 +45,14 @@ class TBillingAmountSections extends StatelessWidget {
               style: Theme.of(context).textTheme.bodyMedium,
             ),
             Text(
-              '\$6.0',
+              '\$${TPricingCalculator.calculateTax(subTotal, 'US')}',
               style: Theme.of(context).textTheme.labelLarge,
             ),
           ],
         ),
-        const SizedBox(
-          height: Tsized.spaceBtwItems / 2,
-        ),
+        const SizedBox(height: Tsized.spaceBtwItems / 2),
+
+        //Order Total
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -64,7 +61,7 @@ class TBillingAmountSections extends StatelessWidget {
               style: Theme.of(context).textTheme.bodyMedium,
             ),
             Text(
-              '\$6.0',
+              '\$${TPricingCalculator.calculateTotalPrice(subTotal, 'US')}',
               style: Theme.of(context).textTheme.titleMedium,
             ),
           ],

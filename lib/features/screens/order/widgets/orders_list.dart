@@ -31,6 +31,8 @@ class TOrderListItems extends StatelessWidget {
                 const SizedBox(
                   width: Tsized.spaceBtwItems / 2,
                 ),
+
+                //status and date
                 Expanded(
                   child: Column(
                     mainAxisSize: MainAxisSize.min,

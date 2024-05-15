@@ -6,7 +6,7 @@ class TSectionHeading extends StatelessWidget {
     this.textcolor,
     this.showActionButtton = true,
     required this.title,
-    this.buttonTitle = 'View all',
+    this.buttonTitle = 'Change',
     this.onPressed,
   });
   final Color? textcolor;
@@ -29,7 +29,7 @@ class TSectionHeading extends StatelessWidget {
           overflow: TextOverflow.ellipsis,
         ),
         if (showActionButtton)
-          TextButton(onPressed: onPressed, child: const Text('View all'))
+          TextButton(onPressed: onPressed, child: const Text('Change'))
       ],
     );
   }

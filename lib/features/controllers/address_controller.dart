@@ -1,8 +1,13 @@
+import 'package:e_commerce_app/common/widgets/texts/section_heading.dart';
+import 'package:e_commerce_app/features/screens/address/add_new_screen.dart';
 import 'package:e_commerce_app/features/screens/address/address_model.dart';
 import 'package:e_commerce_app/features/screens/address/address_repository.dart';
+import 'package:e_commerce_app/features/screens/address/widgets/single_adresses.dart';
 import 'package:e_commerce_app/loaders.dart';
 import 'package:e_commerce_app/network_manager.dart';
 import 'package:e_commerce_app/utils/theme/constants/image_strings.dart';
+import 'package:e_commerce_app/utils/theme/constants/sizes.dart';
+import 'package:e_commerce_app/utils/theme/helpers/cloud_helper_functions.dart';
 import 'package:e_commerce_app/utils/theme/popups/full_screen_loader.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -131,6 +136,83 @@ class AddressController extends GetxController {
       TFullScreenLoader.stoploading();
       TLoaders.errorSnackBar(title: 'Address not found', message: e.toString());
     }
+  }
+
+//show addresses modelBottomsheet at checkOut
+  Future<dynamic> selectNewAddressPopup(BuildContext context) {
+    return showModalBottomSheet(
+        context: context,
+        isScrollControlled: true,
+        builder: (_) => DraggableScrollableSheet(
+            expand: false,
+            builder: (BuildContext context, ScrollController scrollController) {
+              return SingleChildScrollView(
+                controller: scrollController,
+                child: Container(
+                  padding: const EdgeInsets.all(Tsized.lg),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const TSectionHeading(
+                        title: 'Select Address',
+                        showActionButtton: false,
+                      ),
+                      FutureBuilder(
+                        future: getallUserAddress(),
+                        builder: (_, snapshot) {
+                          // Helper function: handle loader, no record, or error message
+                          final response =
+                              TCloudHelperFunctions.checkMultiRecordState(
+                                  snapshot: snapshot);
+                          if (response != null) return response;
+
+                          if (!snapshot.hasData || snapshot.data!.isEmpty) {
+                            return Center(
+                              child: Text('No addresses found'),
+                            );
+                          }
+
+                          return ConstrainedBox(
+                            constraints: BoxConstraints(
+                              maxHeight:
+                                  MediaQuery.of(context).size.height * 0.5,
+                            ),
+                            child: ListView.builder(
+                              shrinkWrap: true,
+                              controller: scrollController,
+                              itemCount: snapshot.data!.length,
+                              itemBuilder: (_, index) {
+                                if (index >= snapshot.data!.length) {
+                                  return SizedBox.shrink();
+                                }
+                                return TsingleAddress(
+                                  address: snapshot.data![index],
+                                  onTap: () async {
+                                    await selectedAddress(
+                                        snapshot.data![index]);
+                                    Get.back();
+                                  },
+                                );
+                              },
+                            ),
+                          );
+                        },
+                      ),
+                      SizedBox(
+                        height: Tsized.defaultSpace * 2,
+                      ),
+                      SizedBox(
+                        width: double.infinity,
+                        child: ElevatedButton(
+                          onPressed: () => Get.to(() => AddNewAdressScreen()),
+                          child: Text('Add new address'),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            }));
   }
 
 //function to reset form fields
