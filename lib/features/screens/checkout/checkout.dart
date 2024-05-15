@@ -14,6 +14,8 @@ import 'package:e_commerce_app/utils/theme/helpers/pricing_calculator.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../order/order_controller.dart';
+
 class CheckOutScreen extends StatelessWidget {
   const CheckOutScreen({super.key});
 

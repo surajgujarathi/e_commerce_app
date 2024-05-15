@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:e_commerce_app/data/repositories.authentication/authentication_repository.dart';
+import 'package:e_commerce_app/features/screens/order/order_Model.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 
 class OrderRepository extends GetxController {
   static OrderRepository get instance => Get.find();
@@ -12,17 +12,24 @@ class OrderRepository extends GetxController {
   //----------Functions----------//
   Future<List<OrderModel>> fetchUserOrders() async {
     try {
-      final userId = AuthenticationRepository.instance.authuser.uid;
-      if (userId.isEmpty)
-        throw 'Unable to find user informations.Try again in few minutes';
+      final authUser = AuthenticationRepository.instance.authuser;
+      if (authUser == null || authUser.uid.isEmpty) {
+        throw 'Unable to find user information. Try again later.';
+      }
+
+      final userId = authUser.uid;
 
       final result =
           await _db.collection('Users').doc(userId).collection('Orders').get();
-      return result.docs
+
+      // Map document snapshots to OrderModel instances
+      final orders = result.docs
           .map((documentSnapshot) => OrderModel.fromSnapshot(documentSnapshot))
           .toList();
+
+      return orders;
     } catch (e) {
-      throw 'Something went wrong whilen fetching order information.Try again later';
+      throw 'Failed to fetch order information: $e';
     }
   }
 
@@ -34,7 +41,7 @@ class OrderRepository extends GetxController {
           .collection('Users')
           .doc(userId)
           .collection('Orders')
-          .add(order.toJson());
+          .add(order.tojson());
     } catch (e) {
       throw 'Something went wrong whilen saving order information.Try again later';
     }
