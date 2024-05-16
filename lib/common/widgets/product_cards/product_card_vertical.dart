@@ -85,9 +85,7 @@ class TProductCardVertical extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(
-              height: Tsized.spaceBtwItems / 2,
-            ),
+            const SizedBox(height: Tsized.spaceBtwItems / 2),
             Padding(
               padding: const EdgeInsets.only(left: Tsized.sm),
               child: Column(
@@ -101,6 +99,7 @@ class TProductCardVertical extends StatelessWidget {
                 ],
               ),
             ),
+
             //price row
             const Spacer(),
             Row(

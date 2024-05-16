@@ -6,11 +6,13 @@ import 'package:get/get.dart';
 import '../../../../utils/theme/constants/sizes.dart';
 
 class TBillingAddressSection extends StatelessWidget {
-  const TBillingAddressSection({super.key});
+  const TBillingAddressSection({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final addressController = AddressController.instance;
+    final selectedAddress = addressController.selectedAddress.value;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -19,12 +21,14 @@ class TBillingAddressSection extends StatelessWidget {
           buttonTitle: 'Change',
           onPressed: () => addressController.selectNewAddressPopup(context),
         ),
-        addressController.selectedAddress.value.id.isNotEmpty
+        selectedAddress.id.isNotEmpty
             ? Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Suraj Gujarathi',
-                      style: Theme.of(context).textTheme.bodyLarge),
+                  Text(
+                    selectedAddress.name,
+                    style: Theme.of(context).textTheme.bodyLarge,
+                  ),
                   const SizedBox(
                     height: Tsized.spaceBtwItems / 2,
                   ),
@@ -39,7 +43,7 @@ class TBillingAddressSection extends StatelessWidget {
                         width: Tsized.spaceBtwItems / 2,
                       ),
                       Text(
-                        '+91 9848274196',
+                        selectedAddress.phoneNumber,
                         style: Theme.of(context).textTheme.bodyMedium,
                       )
                     ],
@@ -59,7 +63,7 @@ class TBillingAddressSection extends StatelessWidget {
                       ),
                       Expanded(
                         child: Text(
-                          'Husnabad Street Armoor,India',
+                          '${selectedAddress.street}, ${selectedAddress.city}, ${selectedAddress.state}, ${selectedAddress.country}',
                           style: Theme.of(context).textTheme.bodyMedium,
                           softWrap: true,
                         ),
@@ -71,7 +75,7 @@ class TBillingAddressSection extends StatelessWidget {
             : Text(
                 'Select Address',
                 style: Theme.of(context).textTheme.bodyMedium,
-              )
+              ),
       ],
     );
   }
