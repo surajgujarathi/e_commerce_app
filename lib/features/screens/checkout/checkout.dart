@@ -48,9 +48,8 @@ class CheckOutScreen extends StatelessWidget {
 
             //--Coupon Textfield
             const TCouponCode(),
-            const SizedBox(
-              height: Tsized.spaceBtwSections,
-            ),
+
+            const SizedBox(height: Tsized.spaceBtwSections),
 
             //billing section
             TRoundedContainer(

@@ -1,5 +1,4 @@
 import 'package:e_commerce_app/features/controllers/user_controller.dart';
-import 'package:e_commerce_app/utils/theme/constants/image_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
@@ -18,11 +17,11 @@ class TUserProfile extends StatelessWidget {
     final controller = UserController.instance;
     return ListTile(
       leading: TCircularImage(
-        image: TImages.profile,
-        width: 50,
-        height: 50,
-        padding: 0,
-      ),
+          isNetworkImage: true,
+          image: controller.user.value.profilePicture,
+          width: 50,
+          height: 50,
+          padding: 0),
       title: Text(
         controller.user.value.fullName,
         style: Theme.of(context)

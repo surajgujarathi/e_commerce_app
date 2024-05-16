@@ -1,4 +1,5 @@
 import 'package:e_commerce_app/common/widgets/texts/section_heading.dart';
+import 'package:e_commerce_app/features/screens/cart/cart.dart';
 import 'package:e_commerce_app/features/screens/product_details/bottom_add_to_card_widget.dart';
 import 'package:e_commerce_app/features/screens/product_details/product_attributes.dart';
 import 'package:e_commerce_app/features/screens/product_details/product_details_image_slider.dart';
@@ -56,7 +57,7 @@ class ProductDetail extends StatelessWidget {
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () => Get.to(() => const CartScreen()),
                       child: const Text('CheckOut'),
                     ),
                   ),
