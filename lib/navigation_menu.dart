@@ -10,7 +10,6 @@ import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 class NavigationMenu extends StatelessWidget {
   const NavigationMenu({super.key});
-
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(NavigationController());

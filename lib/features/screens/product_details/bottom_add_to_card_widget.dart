@@ -68,9 +68,7 @@ class TBottomAddToCart extends StatelessWidget {
                     padding: const EdgeInsets.all(Tsized.md),
                     backgroundColor: TColors.black,
                     side: const BorderSide(color: TColors.black)),
-                onPressed: controller.productQuantityInCart.value < 1
-                    ? null
-                    : () => controller.addToCart(product),
+                onPressed: () => controller.addToCart(product),
                 child: const Text('Add to cart'))
           ],
         ),

@@ -3,6 +3,7 @@ import 'package:e_commerce_app/features/screens/signup/signup.dart';
 import 'package:e_commerce_app/features/screens/signup/verify_email.dart';
 import 'package:e_commerce_app/features/screens/store/store.dart';
 import 'package:e_commerce_app/features/screens/wishlist/wishlist.dart';
+import 'package:e_commerce_app/navigation_menu.dart';
 import 'package:e_commerce_app/routes/routes.dart';
 import 'package:get/get.dart';
 
@@ -49,6 +50,7 @@ class AppRoutes {
     GetPage(name: TRoutes.forgetPassword, page: () => const ForgetPassword()),
 
     GetPage(name: TRoutes.onBoarding, page: () => const OnBoardingScreen()),
+    GetPage(name: TRoutes.navigationMenu, page: () => const NavigationMenu()),
 
 // Add more GetPage entries as needed
   ];

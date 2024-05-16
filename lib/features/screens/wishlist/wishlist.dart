@@ -21,6 +21,7 @@ class FavouriteScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final navigationcontroller = Get.put(NavigationController());
     final controller = FavouritesController.instance;
 
     return Scaffold(
@@ -52,7 +53,8 @@ class FavouriteScreen extends StatelessWidget {
                 animation: TImages.lottie,
                 showAction: true,
                 actionText: 'Lets\'s add some',
-                onActionPressed: () => Get.off(() => const NavigationMenu()),
+                onActionPressed: () => navigationcontroller.selectedIndex
+                    .value = (navigationcontroller.selectedIndex.value = 0),
               );
 
               const loader = TVerticalProductShimmer(
